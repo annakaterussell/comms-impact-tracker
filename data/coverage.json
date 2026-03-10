@@ -30,5 +30,33 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773160127415"
+  },
+  {
+    "title": "EV interest to near ‘tipping point’ as charging network grows, officials say",
+    "journalist": "John Irwin",
+    "publication": "Automotive News",
+    "publicationDate": "2024-12-04",
+    "mediaType": "Online News",
+    "estimatedReach": "1200000",
+    "publicationTierId": "tier2",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Speaking",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.autonews.com/manufacturing/suppliers/an-ev-charging-network-mercedes-energy/",
+    "campaignId": "",
+    "notes": "Speaking at a Dec. 3 Alliance for Automotive Innovation conference",
+    "id": "cov-1773166424710"
   }
 ]
