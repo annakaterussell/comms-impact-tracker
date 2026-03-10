@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "name": "Canada & Multiport Launch",
+    "startDate": "2026-01-13",
+    "endDate": "2026-01-27",
+    "goal": "Introduce MBHPC in Canada to EV drivers. \nPosition MBHPC as a tech leader around interoperability solutions in public charging infrastructure.",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a reliable charging network."
+    ],
+    "campaignKeyMessage": "Mercedes-Benz developed the multiport as an easy, adapter-free solution so ALL EVs can use the charging network.",
+    "llmQuery": "Is the Mercedes-Benz charging network in Canada?",
+    "notes": "Canada focused launch \nTargeting a feature with Inside EVs",
+    "id": "camp-1773159722905"
+  }
+]
