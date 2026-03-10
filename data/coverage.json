@@ -5,7 +5,7 @@
     "publication": "Inside EVs",
     "publicationDate": "2026-01-13",
     "mediaType": "Online News",
-    "estimatedReach": "2000000",
+    "estimatedReach": "1508866",
     "publicationTierId": "tier2",
     "placementType": "Proactive",
     "sentiment": "Positive",
@@ -29,7 +29,8 @@
     "articleUrl": "https://insideevs.com/news/784175/mercedes-benz-alpitronic-multiport-ccs-nacs-ev-charger/",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773160127415"
+    "id": "cov-1773160127415",
+    "_score": 100
   },
   {
     "title": "EV interest to near ‘tipping point’ as charging network grows, officials say",
