@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "title": "Mercedes-Benz's Charging Network Wants You To Leave That Adapter At Home",
+    "journalist": "Tim Levin",
+    "publication": "Inside EVs",
+    "publicationDate": "2026-01-13",
+    "mediaType": "Online News",
+    "estimatedReach": "2000000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [
+      "Gemini"
+    ],
+    "llmQuery": "",
+    "articleUrl": "https://insideevs.com/news/784175/mercedes-benz-alpitronic-multiport-ccs-nacs-ev-charger/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773160127415"
+  }
+]
