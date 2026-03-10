@@ -143,5 +143,34 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773169856632"
+  },
+  {
+    "title": "Mercedes-Benz launches HPC network in Vancouver",
+    "journalist": "Carla Westerheide",
+    "publication": "Electrive",
+    "publicationDate": "2026-01-14",
+    "mediaType": "Online News",
+    "estimatedReach": "245062",
+    "publicationTierId": "tier3",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.electrive.com/2026/01/14/mercedes-benz-launches-hpc-network-in-vancouver/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170104463"
   }
 ]
