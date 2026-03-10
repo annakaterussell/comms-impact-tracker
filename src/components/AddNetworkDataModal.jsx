@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function AddNetworkDataModal({ onClose, onSave }) {
+export default function AddNetworkDataModal({ onClose, onSave, editItem }) {
   const [weekStart, setWeekStart] = useState('');
   const [value, setValue] = useState('');
   const [note, setNote] = useState('');
 
-  function getMonday(dateStr) {
+  useEffect(() => {
+    if (editItem) {
+      setWeekStart(editItem.weekStart || '');
+      setValue(String(editItem.value || ''));
+      setNote(editItem.note || '');
+    }
+  }, [editItem]);
+
+  function getSunday(dateStr) {
     const d = new Date(dateStr + 'T00:00:00');
     const day = d.getDay(); // 0=Sun
-    const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-    d.setDate(diff);
+    d.setDate(d.getDate() - day); // back to Sunday
     return d.toISOString().split('T')[0];
   }
 
@@ -18,8 +25,8 @@ export default function AddNetworkDataModal({ onClose, onSave }) {
       alert('Please select a week and enter a utilization value.');
       return;
     }
-    const monday = getMonday(weekStart);
-    onSave({ id: `util-${monday}`, weekStart: monday, value: parseFloat(value), note });
+    const sunday = getSunday(weekStart);
+    onSave({ id: `util-${sunday}`, weekStart: sunday, value: parseFloat(value), note });
     onClose();
   }
 
@@ -27,13 +34,13 @@ export default function AddNetworkDataModal({ onClose, onSave }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal" style={{ maxWidth: 420 }}>
         <div className="modal-header">
-          <h2>Add Network Utilization</h2>
+          <h2>{editItem ? 'Edit Network Utilization' : 'Add Network Utilization'}</h2>
           <button className="modal-close" onClick={onClose}>×</button>
         </div>
         <div className="modal-body">
 
           <div className="form-group">
-            <label>Week (select any day — snaps to Monday)</label>
+            <label>Week (select any day — snaps to Sunday)</label>
             <input
               type="date"
               value={weekStart}
@@ -41,7 +48,7 @@ export default function AddNetworkDataModal({ onClose, onSave }) {
             />
             {weekStart && (
               <p className="text-sm text-muted" style={{ marginTop: 4 }}>
-                Week of: <strong>{new Date(getMonday(weekStart) + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</strong>
+                Week of: <strong>{new Date(getSunday(weekStart) + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</strong>
               </p>
             )}
           </div>
@@ -70,7 +77,7 @@ export default function AddNetworkDataModal({ onClose, onSave }) {
         </div>
         <div className="modal-footer">
           <button className="btn btn-secondary" onClick={onClose}>Cancel</button>
-          <button className="btn btn-primary" onClick={handleSubmit}>Add Data</button>
+          <button className="btn btn-primary" onClick={handleSubmit}>{editItem ? 'Update Data' : 'Add Data'}</button>
         </div>
       </div>
     </div>

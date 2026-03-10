@@ -3,11 +3,10 @@ import { BUSINESS_OBJECTIVE } from '../config/defaultConfig.js';
 
 const FILTERS = ['Week', 'Month', 'Quarter', 'Year', 'All'];
 
-function getMonday(date) {
+function getSunday(date) {
   const d = new Date(date);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  d.setDate(diff);
+  const day = d.getDay(); // 0=Sun
+  d.setDate(d.getDate() - day);
   return d;
 }
 
@@ -16,10 +15,10 @@ function formatWeekLabel(dateStr) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-export default function NetworkUtilizationChart({ utilization, coverage, campaigns, onAddData }) {
+export default function NetworkUtilizationChart({ utilization, coverage, campaigns, onAddData, onEditData, businessTarget }) {
   const [filter, setFilter] = useState('All');
   const [filterDate, setFilterDate] = useState('');
-  const target = BUSINESS_OBJECTIVE.target;
+  const target = businessTarget ?? BUSINESS_OBJECTIVE.target;
 
   // Filtered + sorted utilization
   const filteredData = useMemo(() => {
@@ -30,8 +29,8 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
     const ref = new Date(filterDate + 'T00:00:00');
 
     if (filter === 'Week') {
-      const monday = getMonday(ref);
-      const weekStr = monday.toISOString().split('T')[0];
+      const sunday = getSunday(ref);
+      const weekStr = sunday.toISOString().split('T')[0];
       data = data.filter(d => d.weekStart === weekStr);
     } else if (filter === 'Month') {
       const y = ref.getFullYear(), m = ref.getMonth();
@@ -55,28 +54,39 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
   }, [utilization, filter, filterDate]);
 
   const maxVal = Math.max(...filteredData.map(d => d.value), target, 10);
+  // Add 15% headroom above max so bars don't crowd the top
+  const chartMax = maxVal * 1.15;
   const chartH = 160;
+
+  // Average utilization for displayed range
+  const avgUtil = filteredData.length > 0
+    ? (filteredData.reduce((s, d) => s + d.value, 0) / filteredData.length).toFixed(1)
+    : null;
+
+  const latestVal = filteredData[filteredData.length - 1]?.value;
+  const gapVal = latestVal != null ? latestVal - target : null;
+  const gapPct = gapVal != null ? ((gapVal / target) * 100).toFixed(1) : null;
 
   // Find coverage/campaign events per week
   function getEventsForWeek(weekStart) {
+    const weekStartDate = new Date(weekStart + 'T00:00:00');
     const weekEnd = new Date(weekStart + 'T00:00:00');
     weekEnd.setDate(weekEnd.getDate() + 6);
 
     const covCount = coverage.filter(c => {
       if (!c.publicationDate) return false;
       const d = new Date(c.publicationDate + 'T00:00:00');
-      return d >= new Date(weekStart + 'T00:00:00') && d <= weekEnd;
+      return d >= weekStartDate && d <= weekEnd;
     }).length;
 
-    const campCount = campaigns.filter(c => {
+    const activeCamps = campaigns.filter(c => {
       if (!c.startDate || !c.endDate) return false;
       const start = new Date(c.startDate + 'T00:00:00');
       const end = new Date(c.endDate + 'T00:00:00');
-      const week = new Date(weekStart + 'T00:00:00');
-      return week >= start && week <= end;
-    }).length;
+      return weekStartDate <= end && weekEnd >= start;
+    });
 
-    return { covCount, campCount };
+    return { covCount, campCount: activeCamps.length };
   }
 
   function getDateInputLabel() {
@@ -88,7 +98,6 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
   }
 
   const showDatePicker = filter !== 'All';
-  const dateInputType = filter === 'Month' ? 'month' : filter === 'Year' ? 'number' : 'date';
 
   return (
     <div className="card" style={{ marginBottom: 20 }}>
@@ -145,8 +154,8 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
         {/* Legend */}
         <div className="flex gap-4" style={{ marginBottom: 12, flexWrap: 'wrap' }}>
           <div className="flex items-center gap-2"><div style={{ width: 12, height: 12, borderRadius: 2, background: '#1a1a1a' }}></div><span className="text-sm text-muted">Utilization</span></div>
-          <div className="flex items-center gap-2"><div style={{ width: 12, height: 12, borderRadius: 2, background: '#3b82f6', opacity: 0.6 }}></div><span className="text-sm text-muted">Coverage activity</span></div>
-          <div className="flex items-center gap-2"><div style={{ width: 12, height: 12, borderRadius: 2, background: '#8b5cf6', opacity: 0.6 }}></div><span className="text-sm text-muted">Active campaign</span></div>
+          <div className="flex items-center gap-2"><div style={{ width: 12, height: 12, borderRadius: 2, background: '#3b82f6' }}></div><span className="text-sm text-muted">Coverage activity</span></div>
+          <div className="flex items-center gap-2"><div style={{ width: 12, height: 12, borderRadius: 2, background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.4)' }}></div><span className="text-sm text-muted">Active campaign</span></div>
           <div className="flex items-center gap-2"><div style={{ width: 20, borderTop: '2px dashed #ef4444' }}></div><span className="text-sm text-muted">Target ({target})</span></div>
         </div>
 
@@ -161,8 +170,8 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
 
               {/* Y-axis */}
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: chartH + 24, paddingBottom: 24, width: 44, flexShrink: 0 }}>
-                {[maxVal, Math.round(maxVal * 0.75), Math.round(maxVal * 0.5), Math.round(maxVal * 0.25), 0].map(v => (
-                  <span key={v} style={{ fontSize: 10, color: '#888', textAlign: 'right', paddingRight: 6 }}>{v}</span>
+                {[chartMax, Math.round(chartMax * 0.75), Math.round(chartMax * 0.5), Math.round(chartMax * 0.25), 0].map(v => (
+                  <span key={v} style={{ fontSize: 10, color: '#888', textAlign: 'right', paddingRight: 6 }}>{Math.round(v)}</span>
                 ))}
               </div>
 
@@ -172,7 +181,7 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
                 <div style={{
                   position: 'absolute',
                   left: 0, right: 0,
-                  bottom: 24 + (target / maxVal) * chartH,
+                  bottom: 24 + (target / chartMax) * chartH,
                   borderTop: '2px dashed #ef4444',
                   zIndex: 2,
                   pointerEvents: 'none',
@@ -180,23 +189,33 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
 
                 <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: chartH + 24, paddingBottom: 24, paddingTop: 0 }}>
                   {filteredData.map(d => {
-                    const barH = Math.max(4, (d.value / maxVal) * chartH);
+                    const barH = Math.max(4, (d.value / chartMax) * chartH);
                     const { covCount, campCount } = getEventsForWeek(d.weekStart);
                     const isAboveTarget = d.value >= target;
 
                     return (
-                      <div key={d.weekStart} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 48, flexShrink: 0 }}>
-                        {/* Event indicators */}
-                        <div style={{ height: 16, display: 'flex', gap: 2, alignItems: 'center', marginBottom: 2 }}>
-                          {campCount > 0 && (
-                            <div title={`${campCount} active campaign(s)`} style={{ width: 8, height: 8, borderRadius: '50%', background: '#8b5cf6' }} />
-                          )}
+                      <div
+                        key={d.weekStart}
+                        style={{
+                          display: 'flex', flexDirection: 'column', alignItems: 'center',
+                          width: 48, flexShrink: 0,
+                          background: campCount > 0 ? 'rgba(139,92,246,0.1)' : 'transparent',
+                          borderRadius: 4,
+                          paddingTop: 4,
+                          position: 'relative',
+                        }}
+                      >
+                        {/* Coverage dot indicator */}
+                        <div style={{ height: 14, display: 'flex', gap: 2, alignItems: 'center', marginBottom: 2 }}>
                           {covCount > 0 && (
-                            <div title={`${covCount} coverage item(s)`} style={{ width: 8, height: 8, borderRadius: '50%', background: '#3b82f6' }} />
+                            <div
+                              title={`${covCount} coverage item(s) this week`}
+                              style={{ width: 8, height: 8, borderRadius: '50%', background: '#3b82f6' }}
+                            />
                           )}
                         </div>
 
-                        {/* Value */}
+                        {/* Value label */}
                         <span style={{ fontSize: 10, fontWeight: 600, color: isAboveTarget ? '#22c55e' : '#555', marginBottom: 2 }}>{d.value}</span>
 
                         {/* Bar */}
@@ -217,6 +236,18 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
                         <span style={{ fontSize: 10, color: '#888', marginTop: 4, whiteSpace: 'nowrap', textAlign: 'center' }}>
                           {formatWeekLabel(d.weekStart)}
                         </span>
+
+                        {/* Edit button */}
+                        {onEditData && (
+                          <button
+                            onClick={() => onEditData(d)}
+                            title="Edit this data point"
+                            style={{
+                              fontSize: 9, color: '#aaa', background: 'none', border: 'none',
+                              cursor: 'pointer', padding: '2px 0', lineHeight: 1,
+                            }}
+                          >✏️</button>
+                        )}
                       </div>
                     );
                   })}
@@ -227,19 +258,25 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
         )}
 
         {filteredData.length > 0 && (
-          <div style={{ marginTop: 12, display: 'flex', gap: 24 }}>
+          <div style={{ marginTop: 12, display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             <div>
               <span className="text-sm text-muted">Latest: </span>
-              <strong>{filteredData[filteredData.length - 1]?.value} kWh/port/day</strong>
+              <strong>{latestVal} kWh/port/day</strong>
             </div>
+            {avgUtil && (
+              <div>
+                <span className="text-sm text-muted">Avg (shown range): </span>
+                <strong>{avgUtil} kWh/port/day</strong>
+              </div>
+            )}
             <div>
               <span className="text-sm text-muted">Target: </span>
               <strong>{target} kWh/port/day</strong>
             </div>
             <div>
               <span className="text-sm text-muted">Gap: </span>
-              <strong style={{ color: filteredData[filteredData.length - 1]?.value >= target ? '#22c55e' : '#ef4444' }}>
-                {(filteredData[filteredData.length - 1]?.value - target).toFixed(1)}
+              <strong style={{ color: latestVal >= target ? '#22c55e' : '#ef4444' }}>
+                {gapVal >= 0 ? '+' : ''}{gapVal?.toFixed(1)} ({gapPct >= 0 ? '+' : ''}{gapPct}%)
               </strong>
             </div>
           </div>

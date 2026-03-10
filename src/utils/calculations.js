@@ -26,7 +26,9 @@ export function calculateImpactScore(item, allCoverage, publicationTiers = DEFAU
     : execViz.includes('Quote') ? 1.2
     : 1.0;
 
-  return Math.min(100, Math.round(baseScore * tierMult * placementMult * execMult));
+  const nameInTitleMult = item.nameInTitle ? 1.1 : 1.0;
+
+  return Math.min(100, Math.round(baseScore * tierMult * placementMult * execMult * nameInTitleMult));
 }
 
 export function getImpactLabel(score) {

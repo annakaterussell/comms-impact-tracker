@@ -49,13 +49,33 @@ export default function CampaignResults({ campaigns, coverage, publicationTiers,
                 </div>
               </div>
 
+              {/* Campaign Goals — shown at top */}
+              {(() => {
+                const goals = (activeCampaign.goals || []).filter(g => g.trim());
+                const legacyGoal = activeCampaign.goal;
+                const allGoals = goals.length > 0 ? goals : (legacyGoal ? [legacyGoal] : []);
+                return allGoals.length > 0 ? (
+                  <div style={{ marginBottom: 14, padding: '12px 16px', background: '#f8f8f8', borderRadius: 8, borderLeft: '3px solid #1a1a1a' }}>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>Campaign Goals</p>
+                    {allGoals.map((g, i) => (
+                      <div key={i} style={{ display: 'flex', gap: 8, marginBottom: i < allGoals.length - 1 ? 6 : 0 }}>
+                        <span style={{ fontSize: 13, color: '#1a1a1a', fontWeight: 600, flexShrink: 0 }}>{i + 1}.</span>
+                        <span style={{ fontSize: 13, color: '#333', lineHeight: 1.4 }}>{g}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : null;
+              })()}
+
               <div className="grid-3" style={{ fontSize: 13, gap: 12 }}>
                 {activeCampaign.startDate && (
                   <InfoRow label="Date Range" value={`${activeCampaign.startDate} → ${activeCampaign.endDate || 'ongoing'}`} />
                 )}
-                {activeCampaign.goal && <InfoRow label="Goal" value={activeCampaign.goal} />}
                 {activeCampaign.targetAudience?.length > 0 && (
                   <InfoRow label="Target Audience" value={activeCampaign.targetAudience.join(', ')} />
+                )}
+                {(activeCampaign.targets || []).filter(t => t.trim()).length > 0 && (
+                  <InfoRow label="Target Publications" value={(activeCampaign.targets).filter(t => t.trim()).join(', ')} />
                 )}
               </div>
 
@@ -74,12 +94,19 @@ export default function CampaignResults({ campaigns, coverage, publicationTiers,
                 </div>
               )}
 
-              {activeCampaign.llmQuery && (
-                <div style={{ marginTop: 12 }}>
-                  <p style={{ fontSize: 11, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 4 }}>LLM Query</p>
-                  <p style={{ fontSize: 13, fontStyle: 'italic', color: '#333' }}>"{activeCampaign.llmQuery}"</p>
-                </div>
-              )}
+              {(() => {
+                const qs = (activeCampaign.llmQueries || []).filter(q => q.trim());
+                const legacyQ = activeCampaign.llmQuery;
+                const allQ = qs.length > 0 ? qs : (legacyQ ? [legacyQ] : []);
+                return allQ.length > 0 ? (
+                  <div style={{ marginTop: 12 }}>
+                    <p style={{ fontSize: 11, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 4 }}>LLM Queries</p>
+                    {allQ.map((q, i) => (
+                      <p key={i} style={{ fontSize: 13, fontStyle: 'italic', color: '#333', marginBottom: 4 }}>"{q}"</p>
+                    ))}
+                  </div>
+                ) : null;
+              })()}
             </div>
           </div>
 

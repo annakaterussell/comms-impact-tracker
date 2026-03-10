@@ -10,6 +10,7 @@ const EMPTY = {
   placementType: '', sentiment: '', targetAudience: [],
   executiveVisibility: [], keyMessages: [], llmVisibility: [],
   llmQuery: '', articleUrl: '', campaignId: '', notes: '',
+  quote: '', nameInTitle: false,
 };
 
 export default function AddCoverageModal({ onClose, onSave, editItem, campaigns, publicationTiers, queries }) {
@@ -180,6 +181,22 @@ export default function AddCoverageModal({ onClose, onSave, editItem, campaigns,
               <option value="">None</option>
               {(queries || []).map(q => <option key={q.id} value={q.query}>{q.query}</option>)}
             </select>
+          </div>
+
+          <div className="form-group">
+            <label>Quote</label>
+            <textarea value={form.quote} onChange={e => set('quote', e.target.value)} placeholder="Notable quote from the article…" rows={2} />
+          </div>
+
+          <div className="form-group">
+            <label>Name in Title</label>
+            <div className="checkbox-group">
+              <label className="checkbox-item">
+                <input type="checkbox" checked={!!form.nameInTitle} onChange={e => set('nameInTitle', e.target.checked)} />
+                Mercedes-Benz / brand name appears in article title
+              </label>
+            </div>
+            <p className="text-sm text-muted" style={{ marginTop: 4 }}>Adds a 1.1× multiplier to the Business Impact Score</p>
           </div>
 
           <div className="form-group">

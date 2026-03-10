@@ -1,18 +1,36 @@
 import { useState, useEffect } from 'react';
-import { KEY_MESSAGES, TARGET_AUDIENCES, LLM_PLATFORMS } from '../config/defaultConfig.js';
+import { KEY_MESSAGES, TARGET_AUDIENCES } from '../config/defaultConfig.js';
 
 const EMPTY = {
-  name: '', startDate: '', endDate: '', goal: '',
+  name: '', startDate: '', endDate: '',
+  goals: ['', ''],
   targetAudience: [], keyMessages: [], campaignKeyMessage: '',
-  llmQuery: '', notes: '',
+  llmQueries: ['', ''],
+  targets: ['', ''],
+  notes: '',
 };
+
+function arrField(val, fallbackSingle, defaultArr) {
+  if (Array.isArray(val)) return val.length >= 2 ? val : [...val, ...defaultArr].slice(0, Math.max(val.length, 2));
+  if (fallbackSingle) return [fallbackSingle, ''];
+  return defaultArr;
+}
 
 export default function AddCampaignModal({ onClose, onSave, editItem }) {
   const [form, setForm] = useState(EMPTY);
 
   useEffect(() => {
-    if (editItem) setForm({ ...EMPTY, ...editItem });
-    else setForm(EMPTY);
+    if (editItem) {
+      setForm({
+        ...EMPTY,
+        ...editItem,
+        goals: arrField(editItem.goals, editItem.goal, ['', '']),
+        llmQueries: arrField(editItem.llmQueries, editItem.llmQuery, ['', '']),
+        targets: arrField(editItem.targets, null, ['', '']),
+      });
+    } else {
+      setForm(EMPTY);
+    }
   }, [editItem]);
 
   function set(field, value) {
@@ -26,6 +44,22 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
     });
   }
 
+  function updateListItem(field, index, value) {
+    setForm(f => {
+      const arr = [...(f[field] || [])];
+      arr[index] = value;
+      return { ...f, [field]: arr };
+    });
+  }
+
+  function addListItem(field) {
+    setForm(f => ({ ...f, [field]: [...(f[field] || []), ''] }));
+  }
+
+  function removeListItem(field, index) {
+    setForm(f => ({ ...f, [field]: (f[field] || []).filter((_, i) => i !== index) }));
+  }
+
   function handleSubmit() {
     if (!form.name.trim()) {
       alert('Campaign Name is required.');
@@ -34,6 +68,12 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
     onSave({ ...form, id: editItem?.id || `camp-${Date.now()}` });
     onClose();
   }
+
+  const removeBtn = {
+    background: 'none', border: '1px solid #e0e0e0', borderRadius: 6,
+    padding: '0 10px', cursor: 'pointer', color: '#888', fontSize: 18, lineHeight: '36px',
+    flexShrink: 0,
+  };
 
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
@@ -60,9 +100,24 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
             </div>
           </div>
 
+          {/* Campaign Goals */}
           <div className="form-group">
-            <label>Campaign Goal</label>
-            <textarea value={form.goal} onChange={e => set('goal', e.target.value)} placeholder="Describe the campaign objective…" rows={3} />
+            <label>Campaign Goals</label>
+            {(form.goals || []).map((g, i) => (
+              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                <textarea
+                  value={g}
+                  onChange={e => updateListItem('goals', i, e.target.value)}
+                  placeholder={`Goal ${i + 1}…`}
+                  rows={2}
+                  style={{ flex: 1, padding: '9px 12px', border: '1px solid #e0e0e0', borderRadius: 8, fontFamily: 'inherit', fontSize: 14, resize: 'vertical' }}
+                />
+                {(form.goals || []).length > 1 && (
+                  <button type="button" style={removeBtn} onClick={() => removeListItem('goals', i)}>×</button>
+                )}
+              </div>
+            ))}
+            <button type="button" className="btn btn-secondary btn-sm" onClick={() => addListItem('goals')}>+ Add Goal</button>
           </div>
 
           <div className="form-group">
@@ -79,7 +134,7 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
 
           <div className="form-group">
             <label>Key Messages</label>
-            <div className="checkbox-group" style={{ flexDirection: 'column', gap: 6 }}>
+            <div className="checkbox-group" style={{ flexDirection: 'column', gap: 8 }}>
               {KEY_MESSAGES.map(m => (
                 <label key={m} className="checkbox-item">
                   <input type="checkbox" checked={(form.keyMessages || []).includes(m)} onChange={() => toggleArray('keyMessages', m)} />
@@ -99,14 +154,44 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
             <p className="text-sm text-muted" style={{ marginTop: 4 }}>★ = campaign-specific message (shown alongside core messages in coverage view)</p>
           </div>
 
+          {/* LLM Queries */}
           <div className="form-group">
-            <label>LLM Query to Track</label>
-            <input
-              value={form.llmQuery}
-              onChange={e => set('llmQuery', e.target.value)}
-              placeholder='e.g. "Is the Mercedes charging network reliable?"'
-            />
-            <p className="text-sm text-muted" style={{ marginTop: 4 }}>This query will appear in the PR Overview LLM tracker.</p>
+            <label>LLM Queries to Track</label>
+            <p className="text-sm text-muted" style={{ marginBottom: 8 }}>These queries will appear in the PR Overview LLM tracker.</p>
+            {(form.llmQueries || []).map((q, i) => (
+              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                <input
+                  value={q}
+                  onChange={e => updateListItem('llmQueries', i, e.target.value)}
+                  placeholder={`e.g. "Is the Mercedes charging network reliable?"`}
+                  style={{ flex: 1 }}
+                />
+                {(form.llmQueries || []).length > 1 && (
+                  <button type="button" style={removeBtn} onClick={() => removeListItem('llmQueries', i)}>×</button>
+                )}
+              </div>
+            ))}
+            <button type="button" className="btn btn-secondary btn-sm" onClick={() => addListItem('llmQueries')}>+ Add Query</button>
+          </div>
+
+          {/* Target Publication / Journalist */}
+          <div className="form-group">
+            <label>Target Publication / Journalist</label>
+            <p className="text-sm text-muted" style={{ marginBottom: 8 }}>Publications or journalists you are targeting with this campaign.</p>
+            {(form.targets || []).map((t, i) => (
+              <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                <input
+                  value={t}
+                  onChange={e => updateListItem('targets', i, e.target.value)}
+                  placeholder={`e.g. Electrek / Fred Lambert`}
+                  style={{ flex: 1 }}
+                />
+                {(form.targets || []).length > 1 && (
+                  <button type="button" style={removeBtn} onClick={() => removeListItem('targets', i)}>×</button>
+                )}
+              </div>
+            ))}
+            <button type="button" className="btn btn-secondary btn-sm" onClick={() => addListItem('targets')}>+ Add Target</button>
           </div>
 
           <div className="form-group">

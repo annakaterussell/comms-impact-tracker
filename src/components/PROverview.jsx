@@ -1,8 +1,60 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { KEY_MESSAGES, LLM_PLATFORMS } from '../config/defaultConfig.js';
-import { formatReach } from '../utils/calculations.js';
+import { formatReach, computeStats } from '../utils/calculations.js';
 
-export default function PROverview({ coverage, stats, queries, onAddQuery, onDeleteQuery, onAddCoverage }) {
+const DATE_PRESETS = [
+  { label: 'All time', value: 'all' },
+  { label: 'This month', value: 'month' },
+  { label: 'This quarter', value: 'quarter' },
+  { label: 'This year', value: 'year' },
+  { label: 'Custom', value: 'custom' },
+];
+
+function getPresetRange(preset) {
+  const now = new Date();
+  if (preset === 'month') {
+    return {
+      from: new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0],
+      to: new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0],
+    };
+  }
+  if (preset === 'quarter') {
+    const q = Math.floor(now.getMonth() / 3);
+    return {
+      from: new Date(now.getFullYear(), q * 3, 1).toISOString().split('T')[0],
+      to: new Date(now.getFullYear(), q * 3 + 3, 0).toISOString().split('T')[0],
+    };
+  }
+  if (preset === 'year') {
+    return {
+      from: `${now.getFullYear()}-01-01`,
+      to: `${now.getFullYear()}-12-31`,
+    };
+  }
+  return null;
+}
+
+export default function PROverview({ coverage, publicationTiers, queries, onAddQuery, onDeleteQuery, onAddCoverage }) {
+  const [preset, setPreset] = useState('all');
+  const [customFrom, setCustomFrom] = useState('');
+  const [customTo, setCustomTo] = useState('');
+
+  const filteredCoverage = useMemo(() => {
+    let range = null;
+    if (preset !== 'all' && preset !== 'custom') range = getPresetRange(preset);
+    else if (preset === 'custom' && (customFrom || customTo)) range = { from: customFrom, to: customTo };
+
+    if (!range) return coverage;
+    return coverage.filter(c => {
+      if (!c.publicationDate) return true;
+      if (range.from && c.publicationDate < range.from) return false;
+      if (range.to && c.publicationDate > range.to) return false;
+      return true;
+    });
+  }, [coverage, preset, customFrom, customTo]);
+
+  const stats = useMemo(() => computeStats(filteredCoverage, publicationTiers), [filteredCoverage, publicationTiers]);
+
   const {
     totalCoverage, sentimentCounts, keyMessageCounts,
     llmVisibilityCounts, topPublications,
@@ -22,6 +74,46 @@ export default function PROverview({ coverage, stats, queries, onAddQuery, onDel
 
   return (
     <div>
+      {/* Date range filter */}
+      <div className="card" style={{ marginBottom: 16, padding: '12px 20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 12, fontWeight: 600, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Filter by date:</span>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            {DATE_PRESETS.map(p => (
+              <button
+                key={p.value}
+                className={`filter-btn${preset === p.value ? ' active' : ''}`}
+                onClick={() => setPreset(p.value)}
+              >{p.label}</button>
+            ))}
+          </div>
+          {preset === 'custom' && (
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+              <input
+                type="date"
+                value={customFrom}
+                onChange={e => setCustomFrom(e.target.value)}
+                style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
+                placeholder="From"
+              />
+              <span style={{ fontSize: 12, color: '#888' }}>to</span>
+              <input
+                type="date"
+                value={customTo}
+                onChange={e => setCustomTo(e.target.value)}
+                style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
+                placeholder="To"
+              />
+            </div>
+          )}
+          {preset !== 'all' && (
+            <span className="text-sm text-muted" style={{ marginLeft: 4 }}>
+              Showing {filteredCoverage.length} of {coverage.length} items
+            </span>
+          )}
+        </div>
+      </div>
+
       {/* Row 1: Key Messages + Audience */}
       <div className="grid-2" style={{ marginBottom: 16 }}>
 
@@ -155,9 +247,12 @@ export default function PROverview({ coverage, stats, queries, onAddQuery, onDel
                           ? 'No coverage linked yet'
                           : `${linkedCoverage.length} piece(s) of coverage linked`}
                         {q.campaign && <span> · Campaign: {q.campaign}</span>}
+                        {q.fromCampaign && <span style={{ color: '#8b5cf6', fontWeight: 600 }}> · From campaign</span>}
                       </p>
                     </div>
-                    <button className="btn-ghost btn btn-sm" onClick={() => onDeleteQuery(q.id)} title="Remove query">×</button>
+                    {!q.fromCampaign && (
+                      <button className="btn-ghost btn btn-sm" onClick={() => onDeleteQuery(q.id)} title="Remove query">×</button>
+                    )}
                   </div>
                 );
               })
@@ -194,8 +289,6 @@ export default function PROverview({ coverage, stats, queries, onAddQuery, onDel
           </div>
         </div>
       </div>
-
-      {/* Add Query inline modal */}
     </div>
   );
 }

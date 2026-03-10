@@ -79,15 +79,18 @@ a:hover { text-decoration: underline; }
 .content { flex: 1; padding: 24px; max-width: 1400px; margin: 0 auto; width: 100%; }
 
 /* ── Buttons ─────────────────────────────────────────────────────────────── */
-.btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: var(--radius); font-size: 13px; font-weight: 500; transition: opacity 0.15s, background 0.15s; }
-.btn:hover { opacity: 0.88; }
-.btn-primary { background: var(--near-black); color: var(--white); }
-.btn-secondary { background: var(--white); color: var(--near-black); border: 1px solid var(--border); }
-.btn-secondary:hover { background: var(--bg); }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: var(--radius); font-size: 13px; font-weight: 600; transition: all 0.18s; letter-spacing: 0.02em; white-space: nowrap; }
+.btn:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.14); }
+.btn:active { transform: translateY(0); box-shadow: none; opacity: 1; }
+.btn-primary { background: var(--near-black); color: var(--white); box-shadow: 0 2px 4px rgba(0,0,0,0.22); }
+.btn-primary:hover { background: #333; }
+.btn-secondary { background: var(--white); color: var(--near-black); border: 1.5px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+.btn-secondary:hover { background: var(--bg); border-color: #c0c0c0; }
 .btn-ghost { background: none; color: var(--mid-grey); padding: 6px 10px; }
 .btn-ghost:hover { color: var(--near-black); background: var(--bg); }
-.btn-danger { background: var(--red); color: var(--white); }
-.btn-sm { padding: 5px 10px; font-size: 12px; }
+.btn-danger { background: var(--red); color: var(--white); box-shadow: 0 1px 3px rgba(239,68,68,0.3); }
+.btn-danger:hover { background: #dc2626; }
+.btn-sm { padding: 7px 14px; font-size: 12px; }
 
 /* ── Cards ───────────────────────────────────────────────────────────────── */
 .card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow); }
@@ -211,9 +214,10 @@ tr:hover td { background: var(--bg); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
 /* Checkboxes */
-.checkbox-group { display: flex; flex-wrap: wrap; gap: 8px; }
-.checkbox-item { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; }
-.checkbox-item input[type="checkbox"] { width: 15px; height: 15px; cursor: pointer; accent-color: var(--near-black); }
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.checkbox-item { display: flex; align-items: center; gap: 14px; cursor: pointer; font-size: 13px; padding: 6px 10px; border-radius: 6px; transition: background 0.1s; }
+.checkbox-item:hover { background: var(--bg); }
+.checkbox-item input[type="checkbox"] { width: 17px; height: 17px; cursor: pointer; accent-color: var(--near-black); flex-shrink: 0; }
 
 /* ── Impact score badge ──────────────────────────────────────────────────── */
 .impact-score {

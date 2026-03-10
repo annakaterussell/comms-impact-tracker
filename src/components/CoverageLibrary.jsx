@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { calculateImpactScore, getImpactLabel, formatReach, formatDate } from '../utils/calculations.js';
-import { exportCoverageCSV } from '../utils/exportCSV.js';
+import { exportCoverageCSV, getCoverageCSVTemplate, importCoverageCSV } from '../utils/exportCSV.js';
 
 const SORT_OPTIONS = [
   { value: 'date-desc', label: 'Newest first' },
@@ -10,12 +10,35 @@ const SORT_OPTIONS = [
   { value: 'pub', label: 'Publication A–Z' },
 ];
 
-export default function CoverageLibrary({ coverage, campaigns, publicationTiers, onEdit, onDelete, onAdd }) {
+export default function CoverageLibrary({ coverage, campaigns, publicationTiers, onEdit, onDelete, onAdd, onImport }) {
   const [search, setSearch] = useState('');
   const [sortBy, setSortBy] = useState('date-desc');
   const [filterSentiment, setFilterSentiment] = useState('');
   const [filterAudience, setFilterAudience] = useState('');
   const [filterCampaign, setFilterCampaign] = useState('');
+  const fileInputRef = useRef(null);
+
+  function handleImportFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = evt => {
+      try {
+        const items = importCoverageCSV(evt.target.result, campaigns);
+        if (items.length === 0) {
+          alert('No valid rows found in the CSV. Make sure the file matches the template format.');
+          return;
+        }
+        if (confirm(`Import ${items.length} coverage item(s)?`)) {
+          onImport(items);
+        }
+      } catch (err) {
+        alert('Failed to parse CSV: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  }
 
   const enriched = useMemo(() => coverage.map(c => ({
     ...c,
@@ -95,7 +118,10 @@ export default function CoverageLibrary({ coverage, campaigns, publicationTiers,
         >
           {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
         </select>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <button className="btn btn-secondary btn-sm" onClick={() => getCoverageCSVTemplate()} title="Download blank template">⬇ Template</button>
+          <button className="btn btn-secondary btn-sm" onClick={() => fileInputRef.current?.click()} title="Import coverage from CSV">⬆ Import CSV</button>
+          <input ref={fileInputRef} type="file" accept=".csv" style={{ display: 'none' }} onChange={handleImportFile} />
           <button className="btn btn-secondary btn-sm" onClick={() => exportCoverageCSV(coverage)}>Export CSV</button>
           <button className="btn btn-primary btn-sm" onClick={onAdd}>+ Add Coverage</button>
         </div>

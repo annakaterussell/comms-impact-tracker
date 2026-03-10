@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { BUSINESS_OBJECTIVE } from '../config/defaultConfig.js';
 
-export default function SettingsModal({ onClose, onSave, publicationTiers }) {
+export default function SettingsModal({ onClose, onSave, publicationTiers, businessTarget }) {
   const [tiers, setTiers] = useState(publicationTiers.map(t => ({ ...t })));
   const [newTier, setNewTier] = useState({ name: '', description: '', multiplier: '' });
+  const [targetVal, setTargetVal] = useState(String(businessTarget ?? BUSINESS_OBJECTIVE.target));
 
   function updateTier(id, field, value) {
     setTiers(ts => ts.map(t => t.id === id ? { ...t, [field]: value } : t));
@@ -19,7 +21,8 @@ export default function SettingsModal({ onClose, onSave, publicationTiers }) {
   }
 
   function handleSave() {
-    onSave(tiers);
+    const t = parseFloat(targetVal);
+    onSave(tiers, isNaN(t) ? BUSINESS_OBJECTIVE.target : t);
     onClose();
   }
 
@@ -27,11 +30,31 @@ export default function SettingsModal({ onClose, onSave, publicationTiers }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal" style={{ maxWidth: 680 }}>
         <div className="modal-header">
-          <h2>Settings — Publication Tiers</h2>
+          <h2>Settings</h2>
           <button className="modal-close" onClick={onClose}>×</button>
         </div>
         <div className="modal-body" style={{ maxHeight: '65vh', overflowY: 'auto' }}>
 
+          {/* Business Objective Target */}
+          <div style={{ marginBottom: 28, padding: '16px 20px', background: '#f8f8f8', borderRadius: 10, border: '1px solid #e0e0e0' }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>Business Objective Target</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <label style={{ fontSize: 13, fontWeight: 500, color: '#333' }}>Network Utilization Target (kWh/port/day):</label>
+              <input
+                type="number"
+                step="1"
+                min="1"
+                value={targetVal}
+                onChange={e => setTargetVal(e.target.value)}
+                style={{ width: 90, padding: '7px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 14, fontWeight: 600 }}
+              />
+            </div>
+            <p className="text-sm text-muted" style={{ marginTop: 6 }}>
+              This sets the target line on the Network Utilization chart. Default: {BUSINESS_OBJECTIVE.target}.
+            </p>
+          </div>
+
+          <p style={{ fontSize: 12, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 12 }}>Publication Tiers</p>
           <p className="text-sm text-muted" style={{ marginBottom: 16 }}>
             Publication tiers are used as multipliers in the impact score calculation.
             Higher multiplier = more weight given to that placement.

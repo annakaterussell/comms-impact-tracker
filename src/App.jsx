@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { loadData, saveData } from './utils/githubStorage.js';
 import { computeStats } from './utils/calculations.js';
-import { DEFAULT_PUBLICATION_TIERS } from './config/defaultConfig.js';
+import { DEFAULT_PUBLICATION_TIERS, BUSINESS_OBJECTIVE } from './config/defaultConfig.js';
 
 import TopLevelScores from './components/TopLevelScores.jsx';
 import NetworkUtilizationChart from './components/NetworkUtilizationChart.jsx';
@@ -68,7 +68,7 @@ export default function App() {
   const [campaigns, setCampaigns] = useState([]);
   const [utilization, setUtilization] = useState([]);
   const [queries, setQueries] = useState([]);
-  const [config, setConfig] = useState({ publicationTiers: DEFAULT_PUBLICATION_TIERS });
+  const [config, setConfig] = useState({ publicationTiers: DEFAULT_PUBLICATION_TIERS, businessTarget: BUSINESS_OBJECTIVE.target });
 
   // Modal visibility
   const [showCoverageModal, setShowCoverageModal] = useState(false);
@@ -78,6 +78,7 @@ export default function App() {
   const [showQueryModal, setShowQueryModal] = useState(false);
   const [editingCoverage, setEditingCoverage] = useState(null);
   const [editingCampaign, setEditingCampaign] = useState(null);
+  const [editingUtilization, setEditingUtilization] = useState(null);
 
   // ── Load all data on mount ─────────────────────────────────────────────
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function App() {
         setCampaigns(camp);
         setUtilization(util);
         setQueries(qry);
-        if (cfg && cfg.publicationTiers) setConfig(cfg);
+        if (cfg && cfg.publicationTiers) setConfig({ ...config, ...cfg });
       } catch (e) {
         setError(e.message);
       } finally {
@@ -135,6 +136,11 @@ export default function App() {
     setShowCoverageModal(true);
   }
 
+  async function handleImportCoverage(items) {
+    const next = [...coverage, ...items];
+    await persist('coverage', next, setCoverage);
+  }
+
   // ── Campaign handlers ─────────────────────────────────────────────────
   async function handleSaveCampaign(item) {
     const next = editingCampaign
@@ -155,12 +161,17 @@ export default function App() {
 
   // ── Utilization handlers ──────────────────────────────────────────────
   async function handleSaveUtilization(item) {
-    // Replace if same week exists, else append
     const exists = utilization.find(u => u.weekStart === item.weekStart);
     const next = exists
       ? utilization.map(u => u.weekStart === item.weekStart ? item : u)
       : [...utilization, item];
     await persist('utilization', next, setUtilization);
+    setEditingUtilization(null);
+  }
+
+  function openEditUtilization(item) {
+    setEditingUtilization(item);
+    setShowNetworkModal(true);
   }
 
   // ── Query handlers ────────────────────────────────────────────────────
@@ -172,14 +183,48 @@ export default function App() {
     await persist('queries', queries.filter(q => q.id !== id), setQueries);
   }
 
-  // ── Config (pub tiers) ────────────────────────────────────────────────
-  async function handleSaveConfig(tiers) {
-    const next = { ...config, publicationTiers: tiers };
+  // ── Config (pub tiers + business target) ─────────────────────────────
+  async function handleSaveConfig(tiers, businessTarget) {
+    const next = { ...config, publicationTiers: tiers, businessTarget };
     await persist('config', next, setConfig);
   }
 
+  // ── Merged queries: global + from campaigns ───────────────────────────
+  const allQueries = useMemo(() => {
+    const merged = [...queries];
+    const existingTexts = new Set(queries.map(q => q.query.toLowerCase()));
+
+    campaigns.forEach(camp => {
+      (camp.llmQueries || []).filter(q => q.trim()).forEach(qText => {
+        if (!existingTexts.has(qText.toLowerCase())) {
+          merged.push({
+            id: `camp-q-${camp.id}-${qText}`,
+            query: qText,
+            campaign: camp.name,
+            fromCampaign: true,
+          });
+          existingTexts.add(qText.toLowerCase());
+        }
+      });
+      // Legacy single llmQuery field
+      if (camp.llmQuery && !existingTexts.has(camp.llmQuery.toLowerCase())) {
+        merged.push({
+          id: `camp-q-${camp.id}-legacy`,
+          query: camp.llmQuery,
+          campaign: camp.name,
+          fromCampaign: true,
+        });
+        existingTexts.add(camp.llmQuery.toLowerCase());
+      }
+    });
+
+    return merged;
+  }, [queries, campaigns]);
+
   // ── Derived stats ─────────────────────────────────────────────────────
   const stats = computeStats(coverage, config.publicationTiers);
+
+  const businessTarget = config.businessTarget ?? BUSINESS_OBJECTIVE.target;
 
   // ── Render ─────────────────────────────────────────────────────────────
   if (loading) {
@@ -257,12 +302,14 @@ export default function App() {
               utilization={utilization}
               coverage={coverage}
               campaigns={campaigns}
-              onAddData={() => setShowNetworkModal(true)}
+              onAddData={() => { setEditingUtilization(null); setShowNetworkModal(true); }}
+              onEditData={openEditUtilization}
+              businessTarget={businessTarget}
             />
             <PROverview
               coverage={coverage}
-              stats={stats}
-              queries={queries}
+              publicationTiers={config.publicationTiers}
+              queries={allQueries}
               onAddQuery={() => setShowQueryModal(true)}
               onDeleteQuery={handleDeleteQuery}
               onAddCoverage={() => { setEditingCoverage(null); setShowCoverageModal(true); }}
@@ -290,6 +337,7 @@ export default function App() {
             onEdit={openEditCoverage}
             onDelete={handleDeleteCoverage}
             onAdd={() => { setEditingCoverage(null); setShowCoverageModal(true); }}
+            onImport={handleImportCoverage}
           />
         )}
       </main>
@@ -300,7 +348,7 @@ export default function App() {
           editItem={editingCoverage}
           campaigns={campaigns}
           publicationTiers={config.publicationTiers}
-          queries={queries}
+          queries={allQueries}
           onClose={() => { setShowCoverageModal(false); setEditingCoverage(null); }}
           onSave={handleSaveCoverage}
         />
@@ -314,13 +362,15 @@ export default function App() {
       )}
       {showNetworkModal && (
         <AddNetworkDataModal
-          onClose={() => setShowNetworkModal(false)}
+          editItem={editingUtilization}
+          onClose={() => { setShowNetworkModal(false); setEditingUtilization(null); }}
           onSave={handleSaveUtilization}
         />
       )}
       {showSettingsModal && (
         <SettingsModal
           publicationTiers={config.publicationTiers}
+          businessTarget={businessTarget}
           onClose={() => setShowSettingsModal(false)}
           onSave={handleSaveConfig}
         />
