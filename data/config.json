@@ -1,0 +1,9 @@
+{
+  "publicationTiers": [
+    { "id": "tier1", "name": "National Business", "description": "WSJ, NYT, Bloomberg, Forbes", "multiplier": 2.0 },
+    { "id": "tier2", "name": "Tech / Auto Tier 1", "description": "TechCrunch, Wired, Car & Driver, Electrek", "multiplier": 1.8 },
+    { "id": "tier3", "name": "Regional / Trade", "description": "Local news, EV-specific publications", "multiplier": 1.2 },
+    { "id": "tier4", "name": "Industry / Niche", "description": "Industry newsletters, niche outlets", "multiplier": 1.0 },
+    { "id": "tier5", "name": "Blog / Influencer", "description": "Personal blogs, micro-influencers", "multiplier": 0.8 }
+  ]
+}
