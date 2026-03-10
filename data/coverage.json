@@ -59,5 +59,34 @@
     "campaignId": "",
     "notes": "Speaking at a Dec. 3 Alliance for Automotive Innovation conference",
     "id": "cov-1773166424710"
+  },
+  {
+    "title": "Mercedes-Benz Charging Network launches in Canada",
+    "journalist": "Tom Venetis",
+    "publication": "Convenience Store News Canada ",
+    "publicationDate": "2026-01-16",
+    "mediaType": "Online News",
+    "estimatedReach": "8182",
+    "publicationTierId": "tier3",
+    "placementType": "Reactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://ccentral.ca/mercedes-benz-charging-network-launches-canada",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773169119010"
   }
 ]
