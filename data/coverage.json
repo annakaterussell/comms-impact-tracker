@@ -88,5 +88,34 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773169119010"
+  },
+  {
+    "title": "Mercedes-Benz launches 400 kW EV fast-charging network in Canada",
+    "journalist": "Darryn John",
+    "publication": "Drive Tesla",
+    "publicationDate": "2026-01-15",
+    "mediaType": "Online News",
+    "estimatedReach": "96977",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://driveteslacanada.ca/news/mercedes-benz-launches-400-kw-ev-fast-charging-network-in-canada/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773169280353"
   }
 ]
