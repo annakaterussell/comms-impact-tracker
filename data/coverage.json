@@ -117,5 +117,31 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773169280353"
+  },
+  {
+    "title": "Mercedes-Benz Launches EV Charging Network in Canada with BC Stations",
+    "journalist": " Khatir Soltani",
+    "publication": "Auto 123",
+    "publicationDate": "2026-01-14",
+    "mediaType": "Online News",
+    "estimatedReach": "102862",
+    "publicationTierId": "tier3",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.auto123.com/en/news/mercedes-benz-high-power-charging-hubs-canada-vancouver/73575/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773169856632"
   }
 ]
