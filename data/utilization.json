@@ -4,5 +4,11 @@
     "weekStart": "2025-12-22",
     "value": 94,
     "note": ""
+  },
+  {
+    "id": "util-2026-01-05",
+    "weekStart": "2026-01-05",
+    "value": 66,
+    "note": ""
   }
 ]
