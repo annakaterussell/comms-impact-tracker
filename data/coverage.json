@@ -200,5 +200,38 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773170316874"
+  },
+  {
+    "title": "Mercedes opens EV charging hubs in Canada with CCS + NACS at every stall",
+    "journalist": "Michelle Lewis",
+    "publication": "Electrek",
+    "publicationDate": "2026-01-13",
+    "mediaType": "Online News",
+    "estimatedReach": "2094946",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [
+      "Gemini",
+      "ChatGPT"
+    ],
+    "llmQuery": "",
+    "articleUrl": "https://electrek.co/2026/01/13/mercedes-opens-ev-charging-hubs-in-canada-with-ccs-nacs-at-every-stall/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170556453"
   }
 ]
