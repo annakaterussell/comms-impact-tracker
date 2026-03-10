@@ -233,5 +233,36 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773170556453"
+  },
+  {
+    "title": "Mercedes-Benz's Charging Network Wants You To Leave That Adapter At Home",
+    "journalist": "Tim Levin",
+    "publication": "Yahoo! Tech",
+    "publicationDate": "2026-01-13",
+    "mediaType": "Online News",
+    "estimatedReach": "51110593",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://tech.yahoo.com/transportation/articles/mercedes-benzs-charging-network-tackling-170000603.html",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170811589"
   }
 ]
