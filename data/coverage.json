@@ -173,5 +173,32 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773170104463"
+  },
+  {
+    "title": "Mercedes-Benz expands EV charging network to Canada with B.C. fast chargers",
+    "journalist": "ANC Staff",
+    "publication": "Automotive News",
+    "publicationDate": "2026-01-15",
+    "mediaType": "Online News",
+    "estimatedReach": "1200000",
+    "publicationTierId": "tier2",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.autonews.com/ev/anc-mercedes-benz-charging-network-vancouver-0114/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170316874"
   }
 ]
