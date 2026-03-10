@@ -294,5 +294,35 @@
     "campaignId": "camp-1773159722905",
     "notes": "",
     "id": "cov-1773171461274"
+  },
+  {
+    "title": "Mercedes-Benz launches first Canadian high power EV hubs",
+    "journalist": "",
+    "publication": "Mobility Plaza",
+    "publicationDate": "2026-01-20",
+    "mediaType": "Online News",
+    "estimatedReach": "24010",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.mobilityplaza.org/news/43726",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773171669240"
   }
 ]
