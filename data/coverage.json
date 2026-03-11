@@ -1472,5 +1472,30 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773256633155"
+  },
+  {
+    "title": "From Morality to Materiality: EV Charging Companies Step Up Efforts",
+    "journalist": "Eileen Falkenberg-Hull",
+    "publication": "Newsweek",
+    "publicationDate": "2025-10-01",
+    "mediaType": "Online News",
+    "estimatedReach": "31500000",
+    "publicationTierId": "tier1",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.newsweek.com/morality-materiality-ev-charging-companies-step-efforts-2134272",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773256791501"
   }
 ]
