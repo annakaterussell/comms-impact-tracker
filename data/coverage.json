@@ -1437,11 +1437,12 @@
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.newsweek.com/revolutionary-new-ev-charging-plans-us-revealed-2090508",
-    "campaignId": "",
+    "campaignId": "camp-1773261867244",
     "notes": "",
     "quote": "\"AMG has defined performance on the road for decades, now we're pushing the limits of charging performance. Drivers are hungry for fast charging in amenity rich locations that fit their lifestyle... Soon, we will increase charging power for an even faster experience across North America,\" Andrew Cornelia, president and CEO of Mercedes-Benz High-Power Charging North America, told Newsweek.",
     "nameInTitle": false,
-    "id": "cov-1773256456374"
+    "id": "cov-1773256456374",
+    "_score": 100
   },
   {
     "title": "Electric Vehicles are Designed With the Consumer in Mind",
