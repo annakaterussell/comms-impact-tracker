@@ -935,7 +935,7 @@
     "_score": 68
   },
   {
-    "title": "Mercedes-Benz enters the B.C. EV charging market  Read more at: https://mapleridgenews.com/2026/01/15/mercedes-benz-enters-the-b-c-ev-charging-market/",
+    "title": "Mercedes-Benz enters the B.C. charging market",
     "journalist": "Brandon Tucker",
     "publication": "Maple Ridge News",
     "publicationDate": "2026-01-15",
@@ -962,6 +962,7 @@
     "notes": "",
     "quote": "",
     "nameInTitle": true,
-    "id": "cov-1773247769426"
+    "id": "cov-1773247769426",
+    "_score": 68
   }
 ]
