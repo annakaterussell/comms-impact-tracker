@@ -1529,5 +1529,33 @@
     "quote": "The upscale German automaker created a company, Mercedes-Benz High Power Charging, to build a high-speed charging network in North America. It plans to build about 250 locations across the continent, said CEO Andrew Cornelia.\n\n“It has to work every single time, it has to be fast charging, but really what we’re focused on is what you do while you charge,” Cornelia said.",
     "nameInTitle": false,
     "id": "cov-1773256983940"
+  },
+  {
+    "title": "Federal Realty partners with Mercedes-Benz on rollout of EV charging stations",
+    "journalist": "Andy Peters",
+    "publication": "CoStar",
+    "publicationDate": "2025-07-09",
+    "mediaType": "Online News",
+    "estimatedReach": "3200000",
+    "publicationTierId": "tier3",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.costar.com/article/2015527335/federal-realty-partners-with-mercedes-benz-on-rollout-of-ev-charging-stations?culture=en-US&source=sharedNewsEmail&t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdWx0dXJlQ29kZSI6ImVuLVVTIiwiaWF0IjoxNzUyMDY3NTQ2fQ.TkiTz7zk2rRAiQTvLsjsWSJmkx40Qq41BbFDkh7BT5k",
+    "campaignId": "camp-1773261867244",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773262082316"
   }
 ]
