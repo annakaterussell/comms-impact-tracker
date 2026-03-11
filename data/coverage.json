@@ -348,6 +348,9 @@
     "articleUrl": "https://www.mobilityplaza.org/news/43726",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773171669240"
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773171669240",
+    "_score": 52
   }
 ]
