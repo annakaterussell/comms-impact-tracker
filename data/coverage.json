@@ -1255,5 +1255,33 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773255311090"
+  },
+  {
+    "title": "BYD’s 5-Minute EV Charging: Why Doesn’t America Have It Yet?",
+    "journalist": "Tim Levin",
+    "publication": "Inside EVs",
+    "publicationDate": "2025-04-11",
+    "mediaType": "Online News",
+    "estimatedReach": "453000",
+    "publicationTierId": "tier2",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://insideevs.com/features/756260/byd-five-minute-charging-america/",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773255446341"
   }
 ]
