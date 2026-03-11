@@ -1314,5 +1314,39 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773255556807"
+  },
+  {
+    "title": "Episode 203: Andrew Cornellia, Pres. & CEO Mercedes-Benz High-Power Charging",
+    "journalist": "Jason Stein",
+    "publication": "Cars & Culture with Jason Stein",
+    "publicationDate": "2025-05-23",
+    "mediaType": "Podcast",
+    "estimatedReach": "69200000",
+    "publicationTierId": "tier3",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Speaking"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://podcasts.apple.com/us/podcast/episode-203-andrew-cornellia-pres-ceo-mercedes-benz/id1572684665?i=1000709598726",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773255707127"
   }
 ]
