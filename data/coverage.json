@@ -964,5 +964,35 @@
     "nameInTitle": true,
     "id": "cov-1773247769426",
     "_score": 68
+  },
+  {
+    "title": "The Electric Car That Made Me a Convert",
+    "journalist": "Chris Black",
+    "publication": "GQ",
+    "publicationDate": "2025-05-08",
+    "mediaType": "Online News",
+    "estimatedReach": "10000000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.gq.com/story/the-electric-car-that-made-me-a-convert",
+    "campaignId": "",
+    "notes": "Part of a dedicated brand experience to drive from Atlanta to Miami for the F1 Grand Prix weekend.",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773248288979"
   }
 ]
