@@ -1283,5 +1283,36 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773255446341"
+  },
+  {
+    "title": " Upgrading the EV Charging Experience with Mercedes-Benz HPC ",
+    "journalist": "Steve Birkett",
+    "publication": "Plug and Play EV",
+    "publicationDate": "2025-04-30",
+    "mediaType": "Podcast",
+    "estimatedReach": "2000",
+    "publicationTierId": "tier4",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Speaking"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.youtube.com/watch?v=wTUK05t5WRw&t=4061s",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773255556807"
   }
 ]
