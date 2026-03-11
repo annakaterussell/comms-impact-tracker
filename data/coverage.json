@@ -1134,5 +1134,38 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773254584398"
+  },
+  {
+    "title": "Can Mercedes-Benz Fix EV Charging? + Rivian's Big Bet On Small EVs",
+    "journalist": "Patrick George ",
+    "publication": "Inside EVs Plugged-in Podcast",
+    "publicationDate": "2025-03-28",
+    "mediaType": "Podcast",
+    "estimatedReach": "10000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Speaking"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a reliable charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://podcasts.apple.com/ca/podcast/can-mercedes-benz-fix-ev-charging-rivians-big-bet-on/id1507467528?i=1000701223310",
+    "campaignId": "camp-1773254819107",
+    "notes": "Cross posted to YouTube",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773254932787"
   }
 ]
