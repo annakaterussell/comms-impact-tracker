@@ -1586,5 +1586,33 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773262237284"
+  },
+  {
+    "title": "Retail REIT Strikes 50-Property EV Charger Deal With Mercedes-Benz",
+    "journalist": "Emily Wishingrad",
+    "publication": "BisNow",
+    "publicationDate": "2025-07-09",
+    "mediaType": "Online News",
+    "estimatedReach": "600000",
+    "publicationTierId": "tier3",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.bisnow.com/national/news/retail/retail-reit-bringing-ev-charging-stalls-to-50-shopping-centers-130074?utm_source=X&utm_medium=Organic&utm_content=News",
+    "campaignId": "camp-1773261867244",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773262351412"
   }
 ]
