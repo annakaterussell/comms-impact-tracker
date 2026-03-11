@@ -145,7 +145,10 @@
     "articleUrl": "https://www.auto123.com/en/news/mercedes-benz-high-power-charging-hubs-canada-vancouver/73575/",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773169856632"
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773169856632",
+    "_score": 43
   },
   {
     "title": "Mercedes-Benz launches HPC network in Vancouver",
