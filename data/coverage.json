@@ -1167,5 +1167,36 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773254932787"
+  },
+  {
+    "title": "How Mercedes Wants To Make EV Fast Charging Work Like It Should",
+    "journalist": "Patrick George",
+    "publication": "Inside EVs",
+    "publicationDate": "2025-03-28",
+    "mediaType": "Online News",
+    "estimatedReach": "453000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://insideevs.com/features/754947/mercedes-hpc-podcast-cornelia-17/",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773255038894"
   }
 ]
