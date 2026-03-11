@@ -362,7 +362,7 @@
     "estimatedReach": "63980",
     "publicationTierId": "tier3",
     "placementType": "Organic",
-    "sentiment": "Neutral",
+    "sentiment": "Positive",
     "targetAudience": [
       "Consumer"
     ],
@@ -381,7 +381,8 @@
     "notes": "",
     "quote": "\"With our new design, every stall supports every vehicle–no adapters, no barriers–reflecting our commitment to simplicity, reliability, and access for all,” said Heiko Schmidt, President and CEO of Mercedes-Benz HPC North America and Canada in a press release.",
     "nameInTitle": true,
-    "id": "cov-1773244337294"
+    "id": "cov-1773244337294",
+    "_score": 56
   },
   {
     "title": "Mercedes-Benz’ new ‘inclusive’ charging hub is coming to Squamish Station",
