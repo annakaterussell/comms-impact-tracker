@@ -174,7 +174,10 @@
     "articleUrl": "https://www.electrive.com/2026/01/14/mercedes-benz-launches-hpc-network-in-vancouver/",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773170104463"
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773170104463",
+    "_score": 63
   },
   {
     "title": "Mercedes-Benz expands EV charging network to Canada with B.C. fast chargers",
