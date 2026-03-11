@@ -1381,5 +1381,36 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773255862835"
+  },
+  {
+    "title": "Mercedes-Benz High-Power Charging Is Growing Its Texas Charger Network",
+    "journalist": "Jake Richardson",
+    "publication": "CleanTechnica",
+    "publicationDate": "2025-04-17",
+    "mediaType": "Online News",
+    "estimatedReach": "760000",
+    "publicationTierId": "tier3",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://cleantechnica.com/2025/04/08/mercedes-benz-high-power-charging-is-growing-its-texas-charger-network/",
+    "campaignId": "",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773255991891"
   }
 ]
