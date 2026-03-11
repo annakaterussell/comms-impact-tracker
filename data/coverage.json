@@ -1701,5 +1701,32 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773263691542"
+  },
+  {
+    "title": "Starbucks, Mercedes-Benz Open First EV Charging Hub",
+    "journalist": "",
+    "publication": "Foodservice Equipment Reports",
+    "publicationDate": "2025-11-25",
+    "mediaType": "Online News",
+    "estimatedReach": "7764",
+    "publicationTierId": "tier3",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.fermag.com/articles/starbucks-mercedes-benz-open-ev-charging-hub/",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773263827232"
   }
 ]
