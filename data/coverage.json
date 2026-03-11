@@ -1442,5 +1442,35 @@
     "quote": "\"AMG has defined performance on the road for decades, now we're pushing the limits of charging performance. Drivers are hungry for fast charging in amenity rich locations that fit their lifestyle... Soon, we will increase charging power for an even faster experience across North America,\" Andrew Cornelia, president and CEO of Mercedes-Benz High-Power Charging North America, told Newsweek.",
     "nameInTitle": false,
     "id": "cov-1773256456374"
+  },
+  {
+    "title": "Electric Vehicles are Designed With the Consumer in Mind",
+    "journalist": "Eileen Falkenberg-Hull",
+    "publication": "Newsweek",
+    "publicationDate": "2025-09-25",
+    "mediaType": "Online News",
+    "estimatedReach": "31500000",
+    "publicationTierId": "tier1",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Speaking",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.newsweek.com/powering-ahead-event-live-updates-clean-energy-leaders-look-future-2134192",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773256633155"
   }
 ]
