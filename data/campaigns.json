@@ -62,5 +62,38 @@
     ],
     "notes": "Campaign was significantly reduced due to request from Germany. No press release was sent.",
     "id": "camp-1773254061199"
+  },
+  {
+    "name": "2025 Executive Visibility",
+    "startDate": "",
+    "endDate": "",
+    "goals": [
+      "Elevate Andrew Cornelia's profile as a thought leader in EV charging. ",
+      "Clarify MBHPC's vision and growth trajectory with key EV/automotive media that have a strong consumer facing audience. "
+    ],
+    "targetAudience": [
+      "Consumer"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "campaignKeyMessage": "",
+    "llmQueries": [
+      "",
+      ""
+    ],
+    "targets": [
+      "Inside EVs Plugged In Podcase",
+      "Cars and Culture with Jason Stein",
+      "Coast to Coast EVs Livestream",
+      "Morning Brew / Tech Brew"
+    ],
+    "notes": "",
+    "id": "camp-1773254819107"
   }
 ]
