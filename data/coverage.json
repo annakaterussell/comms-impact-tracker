@@ -1839,5 +1839,32 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773264466013"
+  },
+  {
+    "title": "Starbucks Gets Its First Mercedes-Benz Chargers",
+    "journalist": "Mark Kane",
+    "publication": "EV Charging Stations",
+    "publicationDate": "2025-11-27",
+    "mediaType": "Online News",
+    "estimatedReach": "",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://evchargingstations.com/chargingnews/starbucks-gets-its-first-mercedes-benz-chargers/",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773264625852"
   }
 ]
