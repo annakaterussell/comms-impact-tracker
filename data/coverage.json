@@ -263,7 +263,10 @@
     "articleUrl": "https://tech.yahoo.com/transportation/articles/mercedes-benzs-charging-network-tackling-170000603.html",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773170811589"
+    "quote": "“All of a sudden, I think within maybe a week or two, North America had a new charging standard,” said Madeline Ebert, who leads product development for Mercedes-Benz High Power Charging. \n\n“We as an industry need to solve this so they don't have to worry about it,” she said. “We're going to have some of the older cars in the market for the next 10 years or so. So it's a challenge that we will need to solve for the better part of the next five to 10 years.\"\n\nThat last part was crucial, Ebert said, both to take the confusion out of charging and also because adapters are “a black box.” \n\n“You don't know what people do with it. You don't know how carefully they handle it or not. And all that can, at the end of day, lead to frustration on the customer side,” she said. Some people may also buy an adapter with the wrong current rating, which would slow down charging times, she said. ",
+    "nameInTitle": true,
+    "id": "cov-1773170811589",
+    "_score": 100
   },
   {
     "title": "Mercedes-Benz, BGO Collaborate on New Metro Vancouver EV Charging Hubs",
