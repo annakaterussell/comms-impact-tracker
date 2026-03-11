@@ -624,5 +624,35 @@
     "nameInTitle": true,
     "id": "cov-1773245000710",
     "_score": 68
+  },
+  {
+    "title": "Mercedes-Benz enters the B.C. EV charging market",
+    "journalist": "Brandon Tucker",
+    "publication": "Cloverdale Reporter ",
+    "publicationDate": "2026-01-15",
+    "mediaType": "Online News",
+    "estimatedReach": "14450",
+    "publicationTierId": "tier3",
+    "placementType": "Organic",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://cloverdalereporter.com/2026/01/15/mercedes-benz-enters-the-b-c-ev-charging-market/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "quote": "“With our new design, every stall supports every vehicle – no adapters, no barriers – reflecting our commitment to simplicity, reliability, and access for all,” said Schmidt.  “It’s an important step in building the infrastructure EV ownership demands while strengthening the public charging network in Canada.”\n\nRead more at: https://cloverdalereporter.com/2026/01/15/mercedes-benz-enters-the-b-c-ev-charging-market/",
+    "nameInTitle": true,
+    "id": "cov-1773245175846"
   }
 ]
