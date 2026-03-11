@@ -1674,5 +1674,32 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773262554646"
+  },
+  {
+    "title": "Mercedes-Benz opens its first DC fast charging hub at Starbucks",
+    "journalist": "Michelle Lewis",
+    "publication": "Electrek",
+    "publicationDate": "2025-11-25",
+    "mediaType": "Online News",
+    "estimatedReach": "2694740",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://electrek.co/2025/11/25/mercedes-benz-opens-its-first-dc-fast-charging-hub-at-starbucks/",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773263691542"
   }
 ]
