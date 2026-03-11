@@ -1076,5 +1076,34 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773254285694"
+  },
+  {
+    "title": "Mercedes-Benz Expands EV Charging Network to Canada",
+    "journalist": "Dan Heyman",
+    "publication": "Vicarious Mag",
+    "publicationDate": "2025-02-13",
+    "mediaType": "Online News",
+    "estimatedReach": "2000",
+    "publicationTierId": "tier5",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.vicariousmag.com/mercedes-benz-expands-ev-charging-network-to-canada/",
+    "campaignId": "camp-1773254061199",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773254419041"
   }
 ]
