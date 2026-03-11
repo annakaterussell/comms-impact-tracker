@@ -1497,5 +1497,36 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773256791501"
+  },
+  {
+    "title": "Big businesses are getting into the EV charging game, betting on an electric future",
+    "journalist": "Henry Epp",
+    "publication": "Marketplace",
+    "publicationDate": "2025-08-28",
+    "mediaType": "Online News",
+    "estimatedReach": "366000",
+    "publicationTierId": "tier3",
+    "placementType": "Reactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a reliable charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.marketplace.org/story/2025/08/28/big-businesses-are-getting-into-the-ev-charging-game",
+    "campaignId": "",
+    "notes": "",
+    "quote": "The upscale German automaker created a company, Mercedes-Benz High Power Charging, to build a high-speed charging network in North America. It plans to build about 250 locations across the continent, said CEO Andrew Cornelia.\n\n“It has to work every single time, it has to be fast charging, but really what we’re focused on is what you do while you charge,” Cornelia said.",
+    "nameInTitle": false,
+    "id": "cov-1773256983940"
   }
 ]
