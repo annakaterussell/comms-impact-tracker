@@ -1728,5 +1728,32 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773263827232"
+  },
+  {
+    "title": "Caffeinated charging: Starbucks partners with Mercedes for I-5 EV network in the US",
+    "journalist": "George Heynes",
+    "publication": "EV Infrastructure News",
+    "publicationDate": "2025-11-26",
+    "mediaType": "Online News",
+    "estimatedReach": "18639",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.evinfrastructurenews.com/ev-networks/coffee-meets-kilowatts-starbucks-partners-with-mercedes-for-i-5-ev-network-in-the-us",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773263957820"
   }
 ]
