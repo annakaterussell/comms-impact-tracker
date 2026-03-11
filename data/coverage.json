@@ -234,7 +234,10 @@
     "articleUrl": "https://electrek.co/2026/01/13/mercedes-opens-ev-charging-hubs-in-canada-with-ccs-nacs-at-every-stall/",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773170556453"
+    "quote": "Heiko Schmidt, president and CEO of Mercedes-Benz High-Power Charging North America and Canada, said, “With our new design, every stall supports every vehicle – no adapters, no barriers – reflecting our commitment to simplicity, reliability, and access for all. It’s an important step in building the infrastructure EV ownership demands while strengthening the public charging network in Canada.”",
+    "nameInTitle": true,
+    "id": "cov-1773170556453",
+    "_score": 100
   },
   {
     "title": "Mercedes-Benz's Charging Network Wants You To Leave That Adapter At Home",
