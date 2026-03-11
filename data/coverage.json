@@ -1644,5 +1644,35 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773262469380"
+  },
+  {
+    "title": "Mercedes-Benz HPC to install over 500 EV fast charging stalls at Federal Realty properties",
+    "journalist": "",
+    "publication": "Charged EVs",
+    "publicationDate": "2025-07-09",
+    "mediaType": "Online News",
+    "estimatedReach": "62000",
+    "publicationTierId": "tier4",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://chargedevs.com/newswire/mercedes-benz-hpc-to-install-over-500-ev-fast-charger-stalls-at-federal-realty-properties/",
+    "campaignId": "camp-1773261867244",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773262554646"
   }
 ]
