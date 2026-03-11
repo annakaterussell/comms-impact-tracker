@@ -1755,5 +1755,32 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773263957820"
+  },
+  {
+    "title": "Mercedes opens first DC charger at Starbucks",
+    "journalist": "Carla Westerheide",
+    "publication": "Electrive",
+    "publicationDate": "2025-11-26",
+    "mediaType": "Online News",
+    "estimatedReach": "330543",
+    "publicationTierId": "tier3",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.electrive.com/2025/11/26/mercedes-opens-first-dc-charger-at-starbucks/",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773264073298"
   }
 ]
