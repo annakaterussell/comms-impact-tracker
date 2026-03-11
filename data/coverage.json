@@ -207,7 +207,10 @@
     "articleUrl": "https://www.autonews.com/ev/anc-mercedes-benz-charging-network-vancouver-0114/",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773170316874"
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773170316874",
+    "_score": 78
   },
   {
     "title": "Mercedes opens EV charging hubs in Canada with CCS + NACS at every stall",
