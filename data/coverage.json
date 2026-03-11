@@ -1412,5 +1412,35 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773255991891"
+  },
+  {
+    "title": "Revolutionary New EV Charging Plans for US Revealed",
+    "journalist": "Eileen Falkenberg-Hull",
+    "publication": "Newsweek",
+    "publicationDate": "2025-07-09",
+    "mediaType": "Online News",
+    "estimatedReach": "31500000",
+    "publicationTierId": "tier1",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.newsweek.com/revolutionary-new-ev-charging-plans-us-revealed-2090508",
+    "campaignId": "",
+    "notes": "",
+    "quote": "\"AMG has defined performance on the road for decades, now we're pushing the limits of charging performance. Drivers are hungry for fast charging in amenity rich locations that fit their lifestyle... Soon, we will increase charging power for an even faster experience across North America,\" Andrew Cornelia, president and CEO of Mercedes-Benz High-Power Charging North America, told Newsweek.",
+    "nameInTitle": false,
+    "id": "cov-1773256456374"
   }
 ]
