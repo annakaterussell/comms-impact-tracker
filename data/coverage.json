@@ -1,1 +1,328 @@
-[]
+[
+  {
+    "title": "Mercedes-Benz's Charging Network Wants You To Leave That Adapter At Home",
+    "journalist": "Tim Levin",
+    "publication": "Inside EVs",
+    "publicationDate": "2026-01-13",
+    "mediaType": "Online News",
+    "estimatedReach": "1508866",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [
+      "Gemini"
+    ],
+    "llmQuery": "",
+    "articleUrl": "https://insideevs.com/news/784175/mercedes-benz-alpitronic-multiport-ccs-nacs-ev-charger/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773160127415",
+    "_score": 100
+  },
+  {
+    "title": "EV interest to near ‘tipping point’ as charging network grows, officials say",
+    "journalist": "John Irwin",
+    "publication": "Automotive News",
+    "publicationDate": "2024-12-04",
+    "mediaType": "Online News",
+    "estimatedReach": "1200000",
+    "publicationTierId": "tier2",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Speaking",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.autonews.com/manufacturing/suppliers/an-ev-charging-network-mercedes-energy/",
+    "campaignId": "",
+    "notes": "Speaking at a Dec. 3 Alliance for Automotive Innovation conference",
+    "id": "cov-1773166424710"
+  },
+  {
+    "title": "Mercedes-Benz Charging Network launches in Canada",
+    "journalist": "Tom Venetis",
+    "publication": "Convenience Store News Canada ",
+    "publicationDate": "2026-01-16",
+    "mediaType": "Online News",
+    "estimatedReach": "8182",
+    "publicationTierId": "tier3",
+    "placementType": "Reactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://ccentral.ca/mercedes-benz-charging-network-launches-canada",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773169119010"
+  },
+  {
+    "title": "Mercedes-Benz launches 400 kW EV fast-charging network in Canada",
+    "journalist": "Darryn John",
+    "publication": "Drive Tesla",
+    "publicationDate": "2026-01-15",
+    "mediaType": "Online News",
+    "estimatedReach": "96977",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://driveteslacanada.ca/news/mercedes-benz-launches-400-kw-ev-fast-charging-network-in-canada/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773169280353",
+    "_score": 49
+  },
+  {
+    "title": "Mercedes-Benz Launches EV Charging Network in Canada with BC Stations",
+    "journalist": " Khatir Soltani",
+    "publication": "Auto 123",
+    "publicationDate": "2026-01-14",
+    "mediaType": "Online News",
+    "estimatedReach": "102862",
+    "publicationTierId": "tier3",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.auto123.com/en/news/mercedes-benz-high-power-charging-hubs-canada-vancouver/73575/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773169856632"
+  },
+  {
+    "title": "Mercedes-Benz launches HPC network in Vancouver",
+    "journalist": "Carla Westerheide",
+    "publication": "Electrive",
+    "publicationDate": "2026-01-14",
+    "mediaType": "Online News",
+    "estimatedReach": "245062",
+    "publicationTierId": "tier3",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.electrive.com/2026/01/14/mercedes-benz-launches-hpc-network-in-vancouver/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170104463"
+  },
+  {
+    "title": "Mercedes-Benz expands EV charging network to Canada with B.C. fast chargers",
+    "journalist": "ANC Staff",
+    "publication": "Automotive News",
+    "publicationDate": "2026-01-15",
+    "mediaType": "Online News",
+    "estimatedReach": "1200000",
+    "publicationTierId": "tier2",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.autonews.com/ev/anc-mercedes-benz-charging-network-vancouver-0114/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170316874"
+  },
+  {
+    "title": "Mercedes opens EV charging hubs in Canada with CCS + NACS at every stall",
+    "journalist": "Michelle Lewis",
+    "publication": "Electrek",
+    "publicationDate": "2026-01-13",
+    "mediaType": "Online News",
+    "estimatedReach": "2094946",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [
+      "Gemini",
+      "ChatGPT"
+    ],
+    "llmQuery": "",
+    "articleUrl": "https://electrek.co/2026/01/13/mercedes-opens-ev-charging-hubs-in-canada-with-ccs-nacs-at-every-stall/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170556453"
+  },
+  {
+    "title": "Mercedes-Benz's Charging Network Wants You To Leave That Adapter At Home",
+    "journalist": "Tim Levin",
+    "publication": "Yahoo! Tech",
+    "publicationDate": "2026-01-13",
+    "mediaType": "Online News",
+    "estimatedReach": "51110593",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://tech.yahoo.com/transportation/articles/mercedes-benzs-charging-network-tackling-170000603.html",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773170811589"
+  },
+  {
+    "title": "Mercedes-Benz, BGO Collaborate on New Metro Vancouver EV Charging Hubs",
+    "journalist": "Monte Stewart",
+    "publication": "Connect Canada CRE",
+    "publicationDate": "2026-01-15",
+    "mediaType": "Online News",
+    "estimatedReach": "9037",
+    "publicationTierId": "tier3",
+    "placementType": "Organic",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a reliable charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.connectcre.ca/stories/mercedes-benz-bgo-collaborate-on-new-metro-vancouver-ev-charging-hubs/",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773171461274"
+  },
+  {
+    "title": "Mercedes-Benz launches first Canadian high power EV hubs",
+    "journalist": "",
+    "publication": "Mobility Plaza",
+    "publicationDate": "2026-01-20",
+    "mediaType": "Online News",
+    "estimatedReach": "24010",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.mobilityplaza.org/news/43726",
+    "campaignId": "camp-1773159722905",
+    "notes": "",
+    "id": "cov-1773171669240"
+  }
+]
