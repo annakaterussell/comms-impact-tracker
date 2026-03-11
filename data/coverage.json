@@ -1105,5 +1105,34 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773254419041"
+  },
+  {
+    "title": "Mercedes-Benz to Expand High-Power EV Charging Network into Canada",
+    "journalist": "Matt St-Pierre",
+    "publication": "Motor Illustrated",
+    "publicationDate": "2025-02-24",
+    "mediaType": "",
+    "estimatedReach": "7700",
+    "publicationTierId": "tier4",
+    "placementType": "Reactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://motorillustrated.com/mercedes-benz-to-expand-high-power-ev-charging-network-into-canada/149216/#google_vignette",
+    "campaignId": "camp-1773254061199",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773254584398"
   }
 ]
