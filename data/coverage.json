@@ -1557,5 +1557,34 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773262082316"
+  },
+  {
+    "title": "The Numbers Are In: Volkswagen Smokes Tesla Again",
+    "journalist": "Patrick George",
+    "publication": "Inside EVs",
+    "publicationDate": "2025-07-09",
+    "mediaType": "Newsletter",
+    "estimatedReach": "2500000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://insideevs.com/news/765283/volkswagen-tesla-sales-europe-cm/",
+    "campaignId": "camp-1773261867244",
+    "notes": "Included in daily newsletter emailed to all subscribers. ",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773262237284"
   }
 ]
