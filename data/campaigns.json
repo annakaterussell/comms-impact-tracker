@@ -153,5 +153,35 @@
     ],
     "notes": "Campaign had to be scaled back due to uncertainty around Shoemaker.",
     "id": "camp-1773263537140"
+  },
+  {
+    "name": "Starbucks Partnership Launch",
+    "startDate": "2024-07-17",
+    "endDate": "2024-07-24",
+    "goals": [
+      "Nationwide Footprint: Mercedes-Benz High-Power Charging to expand its DC Fast EV charging network at 100 stores across Starbucks' retail portfolio in America. ",
+      "Electrifying Key Travel Corridors: The ambition of the first phase of the collaboration will be to add DC Fast chargers at Starbucks locations along the 1,400-mile Interstate 5 corridor."
+    ],
+    "targetAudience": [
+      "Consumer",
+      "Business/Trade"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "campaignKeyMessage": "Charging as Delightful as Ordering a Cup of Coffee: The collaboration allows customers to seamlessly incorporate charging into their daily lives and grab a beverage while they charge. ",
+    "llmQueries": [
+      "",
+      ""
+    ],
+    "targets": [
+      "Russ Mitchell, LA Times",
+      "Kristen Toussiant, Fast Company",
+      "Eileen Falkenberg-Hull, Newsweek "
+    ],
+    "notes": "",
+    "id": "camp-1773265227460"
   }
 ]
