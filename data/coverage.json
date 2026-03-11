@@ -1348,5 +1348,38 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773255707127"
+  },
+  {
+    "title": "Automakers are betting on electric vehicles in Texas. Are drivers?",
+    "journalist": "Amber Gaudet",
+    "publication": "Dallas Morning News",
+    "publicationDate": "2025-04-17",
+    "mediaType": "Online News",
+    "estimatedReach": "681000",
+    "publicationTierId": "tier3",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC is a reliable charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.dallasnews.com/news/transportation/2025/04/17/automakers-are-betting-on-electric-vehicles-in-texas-are-drivers/",
+    "campaignId": "",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773255862835"
   }
 ]
