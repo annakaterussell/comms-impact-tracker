@@ -124,5 +124,34 @@
     ],
     "notes": "",
     "id": "camp-1773261867244"
+  },
+  {
+    "name": "First Starbucks | Red Bluff, CA 2025",
+    "startDate": "2025-11-25",
+    "endDate": "",
+    "goals": [
+      "Follow-up on initial partnership announcement by sharing current status of I-5 partnership. ",
+      "Drive awareness around the first Starbucks opening in California. "
+    ],
+    "targetAudience": [
+      "Consumer",
+      "Business/Trade"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "campaignKeyMessage": "",
+    "llmQueries": [
+      "",
+      ""
+    ],
+    "targets": [
+      "",
+      ""
+    ],
+    "notes": "Campaign had to be scaled back due to uncertainty around Shoemaker.",
+    "id": "camp-1773263537140"
   }
 ]
