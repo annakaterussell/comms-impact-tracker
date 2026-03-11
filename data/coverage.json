@@ -1228,5 +1228,32 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773255169949"
+  },
+  {
+    "title": "An EV Expert Thinks Fast Charging Is Overrated. Here’s Why It’s OK to Take Your Time Powering Back Up.",
+    "journalist": "Matt Crisara",
+    "publication": "Popular Mechanics",
+    "publicationDate": "2025-04-03",
+    "mediaType": "Online News",
+    "estimatedReach": "1000000",
+    "publicationTierId": "tier2",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.popularmechanics.com/cars/hybrid-electric/a64344770/ev-fast-charging-overrated/",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773255311090"
   }
 ]
