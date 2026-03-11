@@ -118,8 +118,10 @@
     "articleUrl": "https://driveteslacanada.ca/news/mercedes-benz-launches-400-kw-ev-fast-charging-network-in-canada/",
     "campaignId": "camp-1773159722905",
     "notes": "",
+    "quote": "",
+    "nameInTitle": true,
     "id": "cov-1773169280353",
-    "_score": 49
+    "_score": 56
   },
   {
     "title": "Mercedes-Benz Launches EV Charging Network in Canada with BC Stations",
