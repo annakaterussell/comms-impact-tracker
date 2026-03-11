@@ -1866,5 +1866,33 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773264625852"
+  },
+  {
+    "title": "The Current : Weekly EV News Ep#91 Nov 30, 2025",
+    "journalist": "",
+    "publication": "Miss GoElectric",
+    "publicationDate": "2025-11-30",
+    "mediaType": "Influencer",
+    "estimatedReach": "12000",
+    "publicationTierId": "tier5",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.youtube.com/watch?v=QJFNLA_n9FI",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773264818287"
   }
 ]
