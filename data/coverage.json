@@ -1198,5 +1198,35 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773255038894"
+  },
+  {
+    "title": "Do We Even Need Five-Minute EV Charging?",
+    "journalist": "Tim Levin",
+    "publication": "Inside EVs",
+    "publicationDate": "2025-03-30",
+    "mediaType": "Online News",
+    "estimatedReach": "453000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Negative",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://insideevs.com/news/755010/ev-fast-charging-mercedes-byd/",
+    "campaignId": "camp-1773254819107",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773255169949"
   }
 ]
