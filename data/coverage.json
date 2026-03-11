@@ -307,7 +307,10 @@
     "articleUrl": "https://www.connectcre.ca/stories/mercedes-benz-bgo-collaborate-on-new-metro-vancouver-ev-charging-hubs/",
     "campaignId": "camp-1773159722905",
     "notes": "",
-    "id": "cov-1773171461274"
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773171461274",
+    "_score": 72
   },
   {
     "title": "Mercedes-Benz launches first Canadian high power EV hubs",
