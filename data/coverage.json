@@ -1049,5 +1049,32 @@
     "quote": "Electric vehicles, charging, & batteries\nMercedes-Benz is taking its EV charging network to Canada, starting with Vancouver this year and then to stations in metro Toronto in 2026. The German automaker has 300 charging stalls in operation and under construction in 11 U.S. states. In total, more than 2,500 charging stalls will be deployed between Canada and the U.S.",
     "nameInTitle": false,
     "id": "cov-1773254164840"
+  },
+  {
+    "title": "Mercedes-Benz DC fast chargers are rolling out in Canada",
+    "journalist": "Michelle Lewis",
+    "publication": "Electrek",
+    "publicationDate": "2025-02-13",
+    "mediaType": "Online News",
+    "estimatedReach": "593000",
+    "publicationTierId": "tier2",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a leader in EV charging tech.",
+      "Mercedes-Benz HPC is a fast EV charging network."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://electrek.co/2025/02/13/mercedes-benz-dc-fast-chargers-are-rolling-out-in-canada/",
+    "campaignId": "camp-1773254061199",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773254285694"
   }
 ]
