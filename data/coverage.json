@@ -994,5 +994,36 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773248288979"
+  },
+  {
+    "title": "10 fast charging stalls added to Norfolk Premium Outlets",
+    "journalist": "",
+    "publication": "Wavy 10 ",
+    "publicationDate": "2025-07-21",
+    "mediaType": "Broadcast",
+    "estimatedReach": "3400000",
+    "publicationTierId": "tier3",
+    "placementType": "",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz is customer centric."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.wavy.com/news/local-news/norfolk/10-fast-charging-stalls-added-to-norfolk-premium-outlets/",
+    "campaignId": "",
+    "notes": "",
+    "quote": "“Norfolk Premium Outlets is the latest installation in our strategic partnership with Simon and a great location for EV drivers to recharge their car and themselves,” VP of Origination at Mercedes-Benz High-Power Charging Sharon Baker said. “Drivers can grab a coffee, visit the shops, or even stretch their legs on the lake walk — a perfect mix of amenities to turn charging time into time well spent.”",
+    "nameInTitle": false,
+    "id": "cov-1773253821796"
   }
 ]
