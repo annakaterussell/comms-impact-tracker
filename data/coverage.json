@@ -1782,5 +1782,33 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773264073298"
+  },
+  {
+    "title": "Mercedes-Benz Launches Blazing 400 kW Fast-Charging Hub at Starbucks",
+    "journalist": "",
+    "publication": "AutoBlog",
+    "publicationDate": "2025-11-26",
+    "mediaType": "Online News",
+    "estimatedReach": "",
+    "publicationTierId": "tier4",
+    "placementType": "Organic",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.autoblog.com/news/mercedes-benz-launches-blazing-400-kw-fast-charging-hub-at-starbucks",
+    "campaignId": "camp-1773263537140",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773264237157"
   }
 ]
