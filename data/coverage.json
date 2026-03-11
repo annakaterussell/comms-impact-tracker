@@ -1614,5 +1614,35 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773262351412"
+  },
+  {
+    "title": "Mercedes to install 500 ultra-fast charging stalls at US retail sites",
+    "journalist": "Carla Westerheide",
+    "publication": "Electrive",
+    "publicationDate": "2025-07-10",
+    "mediaType": "Online News",
+    "estimatedReach": "270000",
+    "publicationTierId": "tier4",
+    "placementType": "Proactive",
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.electrive.com/2025/07/10/mercedes-to-install-500-ultra-fast-chargers-at-us-retail-sites/",
+    "campaignId": "camp-1773261867244",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": true,
+    "id": "cov-1773262469380"
   }
 ]
