@@ -30,5 +30,37 @@
     "goal": "Introduce MBHPC in Canada to EV drivers. \nPosition MBHPC as a tech leader around interoperability solutions in public charging infrastructure.",
     "llmQuery": "Is the Mercedes-Benz charging network in Canada?",
     "id": "camp-1773159722905"
+  },
+  {
+    "name": "Toronto Auto Show 2025",
+    "startDate": "2025-02-10",
+    "endDate": "2025-02-17",
+    "goals": [
+      "Infuse MBHPC Into MB Canada's Toronto Auto Show narrative to tee up the market entry later in 2025.",
+      ""
+    ],
+    "targetAudience": [
+      "Consumer",
+      "Business/Trade"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering.",
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC is a leader in EV charging tech."
+    ],
+    "campaignKeyMessage": "",
+    "llmQueries": [
+      "",
+      ""
+    ],
+    "targets": [
+      "",
+      ""
+    ],
+    "notes": "Campaign was significantly reduced due to request from Germany. No press release was sent.",
+    "id": "camp-1773254061199"
   }
 ]
