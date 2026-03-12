@@ -2662,7 +2662,6 @@
     "_score": 47
   },
   {
-    "id": "cov-1773340543409-23",
     "title": "Mercedes-Benz, Starbucks Team Up to Bring EV Charging Stations with 400kW Speeds Across Interstate 5",
     "journalist": "Isaiah Richard",
     "publication": "Tech Times",
@@ -2671,24 +2670,28 @@
     "estimatedReach": "280973",
     "publicationTierId": "tier4",
     "placementType": "Organic",
-    "sentiment": "positive",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.techtimes.com/articles/306717/20240717/mercedes-benz-starbucks-team-up-bring-ev-charging-stations-400kw.htm",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543409-23",
+    "_score": 23
   },
   {
     "id": "cov-1773340543410-24",
