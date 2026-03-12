@@ -2733,7 +2733,7 @@
     "publicationDate": "2024-07-19",
     "mediaType": "Online News",
     "estimatedReach": "73850",
-    "publicationTierId": "tier4",
+    "publicationTierId": "tier3",
     "placementType": "Organic",
     "sentiment": "Neutral",
     "targetAudience": [
@@ -2756,7 +2756,7 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773340543410-27",
-    "_score": 23
+    "_score": 47
   },
   {
     "id": "cov-1773340543410-28",
