@@ -2536,7 +2536,6 @@
     "_score": 27
   },
   {
-    "id": "cov-1773340543409-19",
     "title": "Starbucks and Mercedes-Benz help electrify I-5 corridor with fast chargers for EVs",
     "journalist": "Gillian Dohrn",
     "publication": "GeekWire",
@@ -2545,24 +2544,26 @@
     "estimatedReach": "616168",
     "publicationTierId": "tier2",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
     "executiveVisibility": [],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.geekwire.com/2024/starbucks-and-mercedes-benz-to-help-electrify-the-i-5-corridor-with-dc-fast-chargers-for-evs/",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543409-19",
+    "_score": 41
   },
   {
     "id": "cov-1773340543409-20",
