@@ -2694,33 +2694,36 @@
     "_score": 23
   },
   {
-    "id": "cov-1773340543410-24",
     "title": "Starbucks in EV charging partnership with Mercedes-Benz",
     "journalist": "",
     "publication": "Chain Store Age",
     "publicationDate": "2024-07-17",
     "mediaType": "Online News",
     "estimatedReach": "151495",
-    "publicationTierId": "tier4",
+    "publicationTierId": "tier3",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
-      "Mercedes-Benz is customer centric."
+      "Mercedes-Benz HPC is a leader in EV charging tech."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://chainstoreage.com/starbucks-ev-charging-partnership-mercedes-benz",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543410-24",
+    "_score": 23
   },
   {
     "id": "cov-1773340543410-25",
