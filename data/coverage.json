@@ -2598,7 +2598,6 @@
     "_score": 41
   },
   {
-    "id": "cov-1773340543409-21",
     "title": "Mercedes-Benz unit partners with Starbucks for fast-charging stations in US",
     "journalist": "Nathan Gomes",
     "publication": "StreetInsider",
@@ -2607,24 +2606,28 @@
     "estimatedReach": "392235",
     "publicationTierId": "tier2",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.streetinsider.com/Reuters/Mercedes-Benz+unit+partners+with+Starbucks+for+fast-charging+stations+in+US/23472293.html",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543409-21",
+    "_score": 41
   },
   {
     "title": "Starbucks inks a deal to install 100 more EV chargers, mostly along the West Coast",
