@@ -1111,7 +1111,7 @@
     "journalist": "Matt St-Pierre",
     "publication": "Motor Illustrated",
     "publicationDate": "2025-02-24",
-    "mediaType": "",
+    "mediaType": "Online News",
     "estimatedReach": "7700",
     "publicationTierId": "tier4",
     "placementType": "Reactive",
@@ -1133,7 +1133,8 @@
     "notes": "",
     "quote": "",
     "nameInTitle": true,
-    "id": "cov-1773254584398"
+    "id": "cov-1773254584398",
+    "_score": 48
   },
   {
     "title": "Can Mercedes-Benz Fix EV Charging? + Rivian's Big Bet On Small EVs",
