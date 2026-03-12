@@ -2123,7 +2123,6 @@
     "_score": 69
   },
   {
-    "id": "cov-1773340543406-6",
     "title": "Starbucks, Mercedes team up in EV charging network expansion",
     "journalist": "",
     "publication": "Fox Business Network",
@@ -2132,24 +2131,26 @@
     "estimatedReach": "16671828",
     "publicationTierId": "tier3",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
     "executiveVisibility": [],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.foxbusiness.com/markets/starbucks-mercedes-team-up-ev-charging-network-expansion",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543406-6",
+    "_score": 34
   },
   {
     "id": "cov-1773340543406-7",
