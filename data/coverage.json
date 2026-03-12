@@ -2579,7 +2579,6 @@
     "nameInTitle": false
   },
   {
-    "id": "cov-1773340543409-22",
     "title": "Starbucks inks a deal to install 100 more EV chargers, mostly along the West Coast",
     "journalist": "Peter Romeo",
     "publication": "Restaurant Business",
@@ -2588,24 +2587,28 @@
     "estimatedReach": "363726",
     "publicationTierId": "tier4",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.restaurantbusinessonline.com/operations/starbucks-inks-deal-install-100-more-ev-chargers-mostly-along-west-coast",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": false,
+    "id": "cov-1773340543409-22",
+    "_score": 23
   },
   {
     "id": "cov-1773340543409-23",
