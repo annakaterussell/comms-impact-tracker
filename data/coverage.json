@@ -1961,7 +1961,6 @@
     "_score": 100
   },
   {
-    "id": "cov-1773340543405-1",
     "title": "Mercedes Installing Electric Vehicle Chargers at Starbucks in California",
     "journalist": "Eileen Falkenberg-Hull",
     "publication": "Newsweek",
@@ -1970,24 +1969,28 @@
     "estimatedReach": "57127531",
     "publicationTierId": "tier1",
     "placementType": "Proactive",
-    "sentiment": "positive",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.newsweek.com/mercedes-installing-electric-vehicle-chargers-starbucks-california-1926246",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543405-1",
+    "_score": 100
   },
   {
     "title": "Starbucks could give a much-needed jolt to the EV market",
