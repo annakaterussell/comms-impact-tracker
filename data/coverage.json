@@ -2887,7 +2887,6 @@
     "_score": 23
   },
   {
-    "id": "cov-1773340543410-30",
     "title": "Starbucks, Mercedes expanding EV charging network",
     "journalist": "",
     "publication": "Fast Casual",
@@ -2896,23 +2895,27 @@
     "estimatedReach": "21344",
     "publicationTierId": "tier4",
     "placementType": "Organic",
-    "sentiment": "positive",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.fastcasual.com/news/starbucks-mercedes-expanding-ev-charging-network/",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543410-30",
+    "_score": 23
   }
 ]
