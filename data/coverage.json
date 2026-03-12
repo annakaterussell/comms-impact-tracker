@@ -2831,7 +2831,7 @@
     "estimatedReach": "72381",
     "publicationTierId": "tier2",
     "placementType": "Proactive",
-    "sentiment": "Negative",
+    "sentiment": "Positive",
     "targetAudience": [
       "Consumer"
     ],
@@ -2852,7 +2852,7 @@
     "quote": "",
     "nameInTitle": true,
     "id": "cov-1773340543410-28",
-    "_score": 54
+    "_score": 100
   },
   {
     "title": "Starbucks Teams with Mercedes to Expand EV Charging Network",
