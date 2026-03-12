@@ -2153,7 +2153,6 @@
     "_score": 34
   },
   {
-    "id": "cov-1773340543406-7",
     "title": "Mercedes-Benz and Starbucks to Collaborate on EV Charging Network",
     "journalist": "",
     "publication": "MarketWatch",
@@ -2162,24 +2161,28 @@
     "estimatedReach": "15797271",
     "publicationTierId": "tier1",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.marketwatch.com/story/mercedes-benz-and-starbucks-to-collaborate-on-ev-charging-network-609fe75f",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543406-7",
+    "_score": 55
   },
   {
     "id": "cov-1773340543406-8",
