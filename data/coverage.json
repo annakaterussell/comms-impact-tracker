@@ -2249,7 +2249,6 @@
     "_score": 47
   },
   {
-    "id": "cov-1773340543407-10",
     "title": "Starbucks and Mercedes-Benz Rev Up EV Charging Along I-5: A Green Drive from Canada to Mexico",
     "journalist": "Shivani Kumaresan",
     "publication": "Benzinga.com - Powered by Dow Jones",
@@ -2258,24 +2257,28 @@
     "estimatedReach": "7968427",
     "publicationTierId": "tier1",
     "placementType": "Organic",
-    "sentiment": "positive",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "djp:publicid:BNZNGA:BNZNGA0020240717ek7h0012y",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543407-10",
+    "_score": 50
   },
   {
     "id": "cov-1773340543407-11",
