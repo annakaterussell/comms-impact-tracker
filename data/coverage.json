@@ -2566,7 +2566,6 @@
     "_score": 41
   },
   {
-    "id": "cov-1773340543409-20",
     "title": "Mercedes plans DC chargers at 100 Starbucks stores across US",
     "journalist": "Viknesh Vijayenthiran",
     "publication": "MotorAuthority",
@@ -2575,24 +2574,28 @@
     "estimatedReach": "552589",
     "publicationTierId": "tier2",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.motorauthority.com/news/1143827_mercedes-plans-dc-chargers-at-100-starbucks-stores-across-us",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543409-20",
+    "_score": 41
   },
   {
     "id": "cov-1773340543409-21",
