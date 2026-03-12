@@ -2823,7 +2823,6 @@
     "_score": 47
   },
   {
-    "id": "cov-1773340543410-28",
     "title": "Mercedes-Benz and Starbucks team up to expand EV fast charging",
     "journalist": "Jordyn Grzelewski",
     "publication": "Tech Brew",
@@ -2832,24 +2831,28 @@
     "estimatedReach": "72381",
     "publicationTierId": "tier2",
     "placementType": "Proactive",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Negative",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.emergingtechbrew.com/stories/2024/07/17/mercedes-benz-starbucks-ev-fast-charging",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543410-28",
+    "_score": 54
   },
   {
     "title": "Starbucks Teams with Mercedes to Expand EV Charging Network",
