@@ -2281,7 +2281,6 @@
     "_score": 50
   },
   {
-    "id": "cov-1773340543407-11",
     "title": "Your coffee run has new benefits if you own an electric car",
     "journalist": "James Ochoa",
     "publication": "Miami Herald",
@@ -2290,24 +2289,26 @@
     "estimatedReach": "6632607",
     "publicationTierId": "tier3",
     "placementType": "Organic",
-    "sentiment": "neutral",
-    "targetAudience": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
     "executiveVisibility": [],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.miamiherald.com/news/business/article290178314.html",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543407-11",
+    "_score": 30
   },
   {
     "id": "cov-1773340543407-12",
