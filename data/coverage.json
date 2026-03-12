@@ -1894,5 +1894,36 @@
     "quote": "",
     "nameInTitle": false,
     "id": "cov-1773264818287"
+  },
+  {
+    "title": "How Buc-ee's Became the Unlikely Campion of EVs",
+    "journalist": "Rob Walker",
+    "publication": "Fast Company",
+    "publicationDate": "2024-06-07",
+    "mediaType": "Online News",
+    "estimatedReach": "2700000",
+    "publicationTierId": "tier1",
+    "placementType": "Reactive",
+    "sentiment": "Positive",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview"
+    ],
+    "keyMessages": [
+      "Mercedes-Benz HPC is a fast EV charging network.",
+      "Mercedes-Benz HPC is open to ALL.",
+      "Mercedes-Benz HPC is a reliable charging network.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
+    ],
+    "llmVisibility": [],
+    "llmQuery": "",
+    "articleUrl": "https://www.fastcompany.com/91136248/how-bucees-gas-stations-became-the-unlikely-champion-of-evs",
+    "campaignId": "",
+    "notes": "",
+    "quote": "",
+    "nameInTitle": false,
+    "id": "cov-1773339094255"
   }
 ]
