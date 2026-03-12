@@ -2758,7 +2758,6 @@
     "_score": 23
   },
   {
-    "id": "cov-1773340543410-26",
     "title": "More coffee, less carbon: Inside Starbucks� strategy for EV drivers",
     "journalist": "Heather Clancy",
     "publication": "GreenBiz",
@@ -2767,24 +2766,29 @@
     "estimatedReach": "133805",
     "publicationTierId": "tier4",
     "placementType": "Proactive",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.greenbiz.com/article/more-coffee-less-carbon-inside-starbucks-strategy-ev-drivers",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": false,
+    "id": "cov-1773340543410-26",
+    "_score": 30
   },
   {
     "title": "Starbucks Inks Deal to Install 100 More EV Chargers",
