@@ -2472,7 +2472,6 @@
     "_score": 56
   },
   {
-    "id": "cov-1773340543408-17",
     "title": "Mercedes-Benz To Install EV Chargers At Over 100 Starbucks Locations",
     "journalist": "Jake Richardson",
     "publication": "CleanTechnica",
@@ -2481,24 +2480,28 @@
     "estimatedReach": "1034537",
     "publicationTierId": "tier2",
     "placementType": "Proactive",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://cleantechnica.com/2024/07/17/mercedes-benz-to-install-ev-chargers-at-over-100-starbucks-locations/",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543408-17",
+    "_score": 55
   },
   {
     "title": "Starbucks, Mercedes will open 100 EV chargers along I-5 on West Coast",
