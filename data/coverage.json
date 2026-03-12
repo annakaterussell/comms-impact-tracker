@@ -2057,7 +2057,6 @@
     "_score": 91
   },
   {
-    "id": "cov-1773340543406-4",
     "title": "Starbucks and Mercedes-Benz partner to build EV charging network. First up: the West Coast",
     "journalist": "Russ Mitchell",
     "publication": "Los Angeles Times",
@@ -2066,24 +2065,30 @@
     "estimatedReach": "19450787",
     "publicationTierId": "tier1",
     "placementType": "Proactive",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Interview",
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
       "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.latimes.com/environment/story/2024-07-17/mercedes-starbucks-to-install-open-to-all-ev-chargers-along-5-freeway",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543406-4",
+    "_score": 77
   },
   {
     "id": "cov-1773340543406-5",
