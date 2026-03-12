@@ -1931,7 +1931,7 @@
     "journalist": "Andrew Cornelia",
     "publication": "Fortune",
     "publicationDate": "2024-10-25",
-    "mediaType": "",
+    "mediaType": "Online News",
     "estimatedReach": "18200000",
     "publicationTierId": "tier1",
     "placementType": "Proactive",
@@ -1956,6 +1956,7 @@
     "notes": "",
     "quote": "",
     "nameInTitle": false,
-    "id": "cov-1773339205886"
+    "id": "cov-1773339205886",
+    "_score": 100
   }
 ]
