@@ -2726,7 +2726,6 @@
     "_score": 23
   },
   {
-    "id": "cov-1773340543410-25",
     "title": "Starbucks, Mercedes-Benz to Launch EV Charging Network at Starbucks Stores Across U.S.",
     "journalist": "Mark Segal",
     "publication": "ESG Today",
@@ -2735,24 +2734,28 @@
     "estimatedReach": "150053",
     "publicationTierId": "tier4",
     "placementType": "Organic",
-    "sentiment": "positive",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Business/Trade"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
       "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
       "Mercedes-Benz is customer centric."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.esgtoday.com/starbucks-mercedes-benz-to-launch-ev-charging-network-at-starbucks-stores-across-u-s/",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543410-25",
+    "_score": 23
   },
   {
     "id": "cov-1773340543410-26",
