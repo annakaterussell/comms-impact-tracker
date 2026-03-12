@@ -2091,7 +2091,6 @@
     "_score": 77
   },
   {
-    "id": "cov-1773340543406-5",
     "title": "Mercedes-Benz�s 400kW EV chargers are coming to Starbucks",
     "journalist": "Andrew J. Hawkins",
     "publication": "The Verge",
@@ -2100,24 +2099,28 @@
     "estimatedReach": "18598607",
     "publicationTierId": "tier2",
     "placementType": "Proactive",
-    "sentiment": "neutral",
-    "targetAudience": [],
-    "executiveVisibility": [],
+    "sentiment": "Neutral",
+    "targetAudience": [
+      "Consumer"
+    ],
+    "executiveVisibility": [
+      "Quote"
+    ],
     "keyMessages": [
       "Mercedes-Benz HPC is a fast EV charging network.",
       "Mercedes-Benz HPC is open to ALL.",
-      "Mercedes-Benz HPC is a reliable charging network.",
-      "Mercedes-Benz HPC has a desirable amenity offering.",
-      "Mercedes-Benz HPC is a leader in EV charging tech.",
-      "Mercedes-Benz is customer centric."
+      "Mercedes-Benz is customer centric.",
+      "Mercedes-Benz HPC has a desirable amenity offering."
     ],
     "llmVisibility": [],
     "llmQuery": "",
     "articleUrl": "https://www.theverge.com/2024/7/17/24199984/mercedes-benzs-starbucks-ev-charging-stations-400-kw",
-    "campaignId": "",
+    "campaignId": "camp-1773265227460",
     "notes": "",
     "quote": "",
-    "nameInTitle": false
+    "nameInTitle": true,
+    "id": "cov-1773340543406-5",
+    "_score": 69
   },
   {
     "id": "cov-1773340543406-6",
