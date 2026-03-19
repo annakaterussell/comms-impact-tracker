@@ -2,7 +2,8 @@ import { KEY_MESSAGES, DEFAULT_PUBLICATION_TIERS, IMPACT_SCORE_THRESHOLDS } from
 
 // ── Impact Score ────────────────────────────────────────────────────────────
 
-export function calculateImpactScore(item, allCoverage, publicationTiers = DEFAULT_PUBLICATION_TIERS) {
+// targets = { outlets: string[], journalists: string[] }
+export function calculateImpactScore(item, allCoverage, publicationTiers = DEFAULT_PUBLICATION_TIERS, targets = {}) {
   const maxReach = Math.max(...allCoverage.map(c => Number(c.estimatedReach) || 0), 1);
 
   // Base components (0–100 total)
@@ -28,7 +29,16 @@ export function calculateImpactScore(item, allCoverage, publicationTiers = DEFAU
 
   const nameInTitleMult = item.nameInTitle ? 1.1 : 1.0;
 
-  return Math.min(100, Math.round(baseScore * tierMult * placementMult * execMult * nameInTitleMult));
+  // Target outlet/journalist bonus: 1.15× when coverage hits a tracked target
+  const targetOutlets = (targets.outlets || []).filter(Boolean);
+  const targetJournalists = (targets.journalists || []).filter(Boolean);
+  const isTargetHit = (
+    (item.publication && targetOutlets.some(o => item.publication.toLowerCase().includes(o.toLowerCase()))) ||
+    (item.journalist && targetJournalists.some(j => item.journalist.toLowerCase().includes(j.toLowerCase())))
+  );
+  const targetMult = isTargetHit ? 1.15 : 1.0;
+
+  return Math.min(100, Math.round(baseScore * tierMult * placementMult * execMult * nameInTitleMult * targetMult));
 }
 
 export function getImpactLabel(score) {
@@ -37,7 +47,7 @@ export function getImpactLabel(score) {
 
 // ── Aggregated Stats ────────────────────────────────────────────────────────
 
-export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TIERS) {
+export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TIERS, targets = {}) {
   if (!coverage.length) {
     return {
       totalCoverage: 0,
@@ -56,6 +66,8 @@ export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TI
       llmVisibilityCounts: {},
       topPublications: [],
       keyMessageCounts: {},
+      proactiveCount: 0,
+      targetHitCount: 0,
     };
   }
 
@@ -89,7 +101,7 @@ export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TI
   const execQuotes = coverage.filter(c => c.executiveVisibility?.includes('Quote')).length;
 
   // Impact scores
-  const scores = coverage.map(c => calculateImpactScore(c, coverage, publicationTiers));
+  const scores = coverage.map(c => calculateImpactScore(c, coverage, publicationTiers, targets));
   const avgImpactScore = Math.round(scores.reduce((s, v) => s + v, 0) / scores.length);
 
   // Sentiment
@@ -116,6 +128,17 @@ export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TI
     .slice(0, 10)
     .map(([name, count]) => ({ name, count }));
 
+  // Proactive coverage count
+  const proactiveCount = coverage.filter(c => c.placementType === 'Proactive').length;
+
+  // Target hit count
+  const targetOutlets = (targets.outlets || []).filter(Boolean);
+  const targetJournalists = (targets.journalists || []).filter(Boolean);
+  const targetHitCount = coverage.filter(c =>
+    (c.publication && targetOutlets.some(o => c.publication.toLowerCase().includes(o.toLowerCase()))) ||
+    (c.journalist && targetJournalists.some(j => c.journalist.toLowerCase().includes(j.toLowerCase())))
+  ).length;
+
   return {
     totalCoverage: total,
     totalReach,
@@ -133,6 +156,8 @@ export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TI
     llmVisibilityCounts,
     topPublications,
     keyMessageCounts,
+    proactiveCount,
+    targetHitCount,
   };
 }
 

@@ -4,6 +4,8 @@ import { KEY_MESSAGES, TARGET_AUDIENCES } from '../config/defaultConfig.js';
 const EMPTY = {
   name: '', startDate: '', endDate: '',
   goals: ['', ''],
+  overview: '',
+  keyFindings: '',
   targetAudience: [], keyMessages: [], campaignKeyMessage: '',
   llmQueries: ['', ''],
   targets: ['', ''],
@@ -98,6 +100,30 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
               <label>End Date</label>
               <input type="date" value={form.endDate} onChange={e => set('endDate', e.target.value)} />
             </div>
+          </div>
+
+          {/* Overview */}
+          <div className="form-group">
+            <label>Campaign Overview</label>
+            <textarea
+              value={form.overview || ''}
+              onChange={e => set('overview', e.target.value)}
+              placeholder="Brief summary of this campaign's purpose and approach…"
+              rows={3}
+              style={{ padding: '9px 12px', border: '1px solid #e0e0e0', borderRadius: 8, fontFamily: 'inherit', fontSize: 14, resize: 'vertical', width: '100%' }}
+            />
+          </div>
+
+          {/* Key Findings */}
+          <div className="form-group">
+            <label>Key Findings</label>
+            <textarea
+              value={form.keyFindings || ''}
+              onChange={e => set('keyFindings', e.target.value)}
+              placeholder="Key outcomes, learnings, and results from this campaign…"
+              rows={3}
+              style={{ padding: '9px 12px', border: '1px solid #e0e0e0', borderRadius: 8, fontFamily: 'inherit', fontSize: 14, resize: 'vertical', width: '100%' }}
+            />
           </div>
 
           {/* Campaign Goals */}
