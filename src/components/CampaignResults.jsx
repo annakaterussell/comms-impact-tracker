@@ -14,7 +14,8 @@ export default function CampaignResults({
 
   const activeCampaign = campaigns.find(c => c.id === activeId);
   const campaignCoverage = activeId ? coverage.filter(c => c.campaignId === activeId) : [];
-  const stats = computeStats(campaignCoverage, publicationTiers, targets);
+  const primaryKeyMessage = activeCampaign?.primaryKeyMessage || null;
+  const stats = computeStats(campaignCoverage, publicationTiers, targets, primaryKeyMessage);
 
   // Filter + sort coverage list
   const filteredCoverage = useMemo(() => {
@@ -30,7 +31,7 @@ export default function CampaignResults({
     if (coverageSentiment) data = data.filter(c => c.sentiment === coverageSentiment);
     if (coverageSort === 'date-desc') data.sort((a, b) => (b.publicationDate || '').localeCompare(a.publicationDate || ''));
     if (coverageSort === 'date-asc') data.sort((a, b) => (a.publicationDate || '').localeCompare(b.publicationDate || ''));
-    if (coverageSort === 'impact-desc') data.sort((a, b) => calculateImpactScore(b, coverage, publicationTiers, targets) - calculateImpactScore(a, coverage, publicationTiers, targets));
+    if (coverageSort === 'impact-desc') data.sort((a, b) => calculateImpactScore(b, coverage, publicationTiers, targets, primaryKeyMessage) - calculateImpactScore(a, coverage, publicationTiers, targets, primaryKeyMessage));
     return data;
   }, [campaignCoverage, coverageSearch, coverageSentiment, coverageSort, coverage, publicationTiers, targets]);
 
@@ -352,7 +353,7 @@ export default function CampaignResults({
                     </thead>
                     <tbody>
                       {filteredCoverage.map(c => {
-                        const score = calculateImpactScore(c, coverage, publicationTiers, targets);
+                        const score = calculateImpactScore(c, coverage, publicationTiers, targets, primaryKeyMessage);
                         const { color } = getImpactLabel(score);
                         return (
                           <tr key={c.id}>
