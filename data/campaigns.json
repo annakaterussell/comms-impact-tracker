@@ -29,7 +29,8 @@
     "notes": "Canada focused launch \nTargeting a feature with Inside EVs",
     "goal": "Introduce MBHPC in Canada to EV drivers. \nPosition MBHPC as a tech leader around interoperability solutions in public charging infrastructure.",
     "llmQuery": "Is the Mercedes-Benz charging network in Canada?",
-    "id": "camp-1773159722905"
+    "id": "camp-1773159722905",
+    "primaryKeyMessage": "Mercedes-Benz HPC is a leader in EV charging tech."
   },
   {
     "name": "Toronto Auto Show 2025",
@@ -61,7 +62,8 @@
       ""
     ],
     "notes": "Campaign was significantly reduced due to request from Germany. No press release was sent.",
-    "id": "camp-1773254061199"
+    "id": "camp-1773254061199",
+    "primaryKeyMessage": "Mercedes-Benz HPC is open to ALL."
   },
   {
     "name": "2025 Executive Visibility",
@@ -94,7 +96,8 @@
       "Morning Brew / Tech Brew"
     ],
     "notes": "",
-    "id": "camp-1773254819107"
+    "id": "camp-1773254819107",
+    "primaryKeyMessage": "Mercedes-Benz is customer centric."
   },
   {
     "name": "Federal Realty Launch 2025",
@@ -123,7 +126,8 @@
       ""
     ],
     "notes": "",
-    "id": "camp-1773261867244"
+    "id": "camp-1773261867244",
+    "primaryKeyMessage": "Mercedes-Benz HPC has a desirable amenity offering."
   },
   {
     "name": "First Starbucks | Red Bluff, CA 2025",
@@ -152,7 +156,8 @@
       ""
     ],
     "notes": "Campaign had to be scaled back due to uncertainty around Shoemaker.",
-    "id": "camp-1773263537140"
+    "id": "camp-1773263537140",
+    "primaryKeyMessage": "Mercedes-Benz HPC is open to ALL."
   },
   {
     "name": "Starbucks Partnership Launch",
@@ -182,6 +187,7 @@
       "Eileen Falkenberg-Hull, Newsweek "
     ],
     "notes": "",
-    "id": "camp-1773265227460"
+    "id": "camp-1773265227460",
+    "primaryKeyMessage": "Mercedes-Benz HPC is open to ALL."
   }
 ]
