@@ -2,115 +2,183 @@ import { useState, useMemo } from 'react';
 import { KEY_MESSAGES, LLM_PLATFORMS } from '../config/defaultConfig.js';
 import { formatReach, computeStats } from '../utils/calculations.js';
 
-const DATE_PRESETS = [
-  { label: 'All time', value: 'all' },
-  { label: 'This month', value: 'month' },
-  { label: 'This quarter', value: 'quarter' },
-  { label: 'This year', value: 'year' },
-  { label: 'Custom', value: 'custom' },
-];
+// PROverview now receives pre-filtered coverage from App.jsx (shared date range).
+// targets = { outlets: string[], journalists: string[] }
+export default function PROverview({
+  coverage, totalCoverage, publicationTiers, queries,
+  onAddQuery, onDeleteQuery, onAddCoverage,
+  targets, onUpdateTargets,
+}) {
+  const [newOutlet, setNewOutlet] = useState('');
+  const [newJournalist, setNewJournalist] = useState('');
 
-function getPresetRange(preset) {
-  const now = new Date();
-  if (preset === 'month') {
-    return {
-      from: new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0],
-      to: new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0],
-    };
-  }
-  if (preset === 'quarter') {
-    const q = Math.floor(now.getMonth() / 3);
-    return {
-      from: new Date(now.getFullYear(), q * 3, 1).toISOString().split('T')[0],
-      to: new Date(now.getFullYear(), q * 3 + 3, 0).toISOString().split('T')[0],
-    };
-  }
-  if (preset === 'year') {
-    return {
-      from: `${now.getFullYear()}-01-01`,
-      to: `${now.getFullYear()}-12-31`,
-    };
-  }
-  return null;
-}
-
-export default function PROverview({ coverage, publicationTiers, queries, onAddQuery, onDeleteQuery, onAddCoverage }) {
-  const [preset, setPreset] = useState('all');
-  const [customFrom, setCustomFrom] = useState('');
-  const [customTo, setCustomTo] = useState('');
-
-  const filteredCoverage = useMemo(() => {
-    let range = null;
-    if (preset !== 'all' && preset !== 'custom') range = getPresetRange(preset);
-    else if (preset === 'custom' && (customFrom || customTo)) range = { from: customFrom, to: customTo };
-
-    if (!range) return coverage;
-    return coverage.filter(c => {
-      if (!c.publicationDate) return true;
-      if (range.from && c.publicationDate < range.from) return false;
-      if (range.to && c.publicationDate > range.to) return false;
-      return true;
-    });
-  }, [coverage, preset, customFrom, customTo]);
-
-  const stats = useMemo(() => computeStats(filteredCoverage, publicationTiers), [filteredCoverage, publicationTiers]);
+  const stats = useMemo(() => computeStats(coverage, publicationTiers, targets), [coverage, publicationTiers, targets]);
 
   const {
-    totalCoverage, sentimentCounts, keyMessageCounts,
+    totalCoverage: filteredTotal, sentimentCounts, keyMessageCounts,
     llmVisibilityCounts, topPublications,
     execInterviews, execSpeaking, execQuotes, execVisibilityRatio,
-    consumerCount, businessCount,
+    consumerCount, businessCount, proactiveCount, targetHitCount,
   } = stats;
 
   // Sentiment pie
-  const total = (sentimentCounts.Positive || 0) + (sentimentCounts.Neutral || 0) + (sentimentCounts.Negative || 0);
-  const pctPos = total ? Math.round((sentimentCounts.Positive / total) * 100) : 0;
-  const pctNeu = total ? Math.round((sentimentCounts.Neutral / total) * 100) : 0;
-  const pctNeg = total ? Math.round((sentimentCounts.Negative / total) * 100) : 0;
+  const sentTotal = (sentimentCounts.Positive || 0) + (sentimentCounts.Neutral || 0) + (sentimentCounts.Negative || 0);
+  const pctPos = sentTotal ? Math.round((sentimentCounts.Positive / sentTotal) * 100) : 0;
+  const pctNeu = sentTotal ? Math.round((sentimentCounts.Neutral / sentTotal) * 100) : 0;
+  const pctNeg = sentTotal ? Math.round((sentimentCounts.Negative / sentTotal) * 100) : 0;
 
-  const pieGradient = total
+  const pieGradient = sentTotal
     ? `conic-gradient(#22c55e 0% ${pctPos}%, #9ca3af ${pctPos}% ${pctPos + pctNeu}%, #ef4444 ${pctPos + pctNeu}% 100%)`
     : 'conic-gradient(#e0e0e0 0% 100%)';
 
+  const proactivePct = filteredTotal ? Math.round((proactiveCount / filteredTotal) * 100) : 0;
+
+  // Targets helpers
+  const outlets = targets?.outlets || [];
+  const journalists = targets?.journalists || [];
+
+  function addOutlet() {
+    const val = newOutlet.trim();
+    if (!val) return;
+    onUpdateTargets({ targetOutlets: [...outlets, val], targetJournalists: journalists });
+    setNewOutlet('');
+  }
+
+  function removeOutlet(i) {
+    onUpdateTargets({ targetOutlets: outlets.filter((_, idx) => idx !== i), targetJournalists: journalists });
+  }
+
+  function addJournalist() {
+    const val = newJournalist.trim();
+    if (!val) return;
+    onUpdateTargets({ targetOutlets: outlets, targetJournalists: [...journalists, val] });
+    setNewJournalist('');
+  }
+
+  function removeJournalist(i) {
+    onUpdateTargets({ targetOutlets: outlets, targetJournalists: journalists.filter((_, idx) => idx !== i) });
+  }
+
+  // Coverage earned from target outlets
+  const targetOutletHits = useMemo(() => {
+    if (!outlets.length) return {};
+    const hits = {};
+    outlets.forEach(o => {
+      hits[o] = coverage.filter(c => c.publication?.toLowerCase().includes(o.toLowerCase())).length;
+    });
+    return hits;
+  }, [coverage, outlets]);
+
+  // Coverage earned from target journalists
+  const targetJournalistHits = useMemo(() => {
+    if (!journalists.length) return {};
+    const hits = {};
+    journalists.forEach(j => {
+      hits[j] = coverage.filter(c => c.journalist?.toLowerCase().includes(j.toLowerCase())).length;
+    });
+    return hits;
+  }, [coverage, journalists]);
+
   return (
     <div>
-      {/* Date range filter */}
-      <div className="card" style={{ marginBottom: 16, padding: '12px 20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 12, fontWeight: 600, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Filter by date:</span>
-          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-            {DATE_PRESETS.map(p => (
-              <button
-                key={p.value}
-                className={`filter-btn${preset === p.value ? ' active' : ''}`}
-                onClick={() => setPreset(p.value)}
-              >{p.label}</button>
-            ))}
+      {/* Proactive Coverage summary */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <div className="card-header"><h2>Marketing &amp; Communications Objectives</h2></div>
+        <div className="card-body">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
+            <MetricTile
+              label="Total Coverage"
+              value={filteredTotal}
+              sub={filteredTotal !== totalCoverage ? `of ${totalCoverage} all time` : undefined}
+            />
+            <MetricTile
+              label="Proactive Coverage"
+              value={`${proactiveCount} / ${filteredTotal}`}
+              sub={`${proactivePct}% proactive`}
+              highlight={proactivePct >= 50}
+            />
+            {(outlets.length > 0 || journalists.length > 0) && (
+              <MetricTile
+                label="Target Coverage Earned"
+                value={targetHitCount}
+                sub={`of ${outlets.length + journalists.length} targets tracked`}
+                highlight={targetHitCount > 0}
+              />
+            )}
           </div>
-          {preset === 'custom' && (
-            <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-              <input
-                type="date"
-                value={customFrom}
-                onChange={e => setCustomFrom(e.target.value)}
-                style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
-                placeholder="From"
-              />
-              <span style={{ fontSize: 12, color: '#888' }}>to</span>
-              <input
-                type="date"
-                value={customTo}
-                onChange={e => setCustomTo(e.target.value)}
-                style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
-                placeholder="To"
-              />
+        </div>
+      </div>
+
+      {/* Target Outlets & Reporters */}
+      <div className="card" style={{ marginBottom: 16 }}>
+        <div className="card-header"><h2>Target Outlets &amp; Reporters</h2></div>
+        <div className="card-body">
+          <p className="text-sm text-muted" style={{ marginBottom: 16 }}>
+            Track target publications and journalists. Coverage from these targets earns a 1.15× impact score bonus.
+          </p>
+          <div className="grid-2">
+            {/* Target Outlets */}
+            <div>
+              <p style={{ fontSize: 12, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 10 }}>Target Outlets</p>
+              {outlets.length === 0 && (
+                <p className="text-sm text-muted" style={{ marginBottom: 10 }}>No target outlets yet.</p>
+              )}
+              {outlets.map((o, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #f0f0f0' }}>
+                  <div>
+                    <span style={{ fontSize: 13, fontWeight: 500 }}>{o}</span>
+                    {targetOutletHits[o] > 0 ? (
+                      <span className="badge badge-green" style={{ marginLeft: 8, fontSize: 10 }}>{targetOutletHits[o]} earned</span>
+                    ) : (
+                      <span className="badge badge-grey" style={{ marginLeft: 8, fontSize: 10 }}>0 earned</span>
+                    )}
+                  </div>
+                  <button className="btn btn-ghost btn-sm" onClick={() => removeOutlet(i)} title="Remove">×</button>
+                </div>
+              ))}
+              <div style={{ display: 'flex', gap: 6, marginTop: 10 }}>
+                <input
+                  value={newOutlet}
+                  onChange={e => setNewOutlet(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && addOutlet()}
+                  placeholder="Add outlet name…"
+                  style={{ flex: 1, padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
+                />
+                <button className="btn btn-secondary btn-sm" onClick={addOutlet}>Add</button>
+              </div>
             </div>
-          )}
-          {preset !== 'all' && (
-            <span className="text-sm text-muted" style={{ marginLeft: 4 }}>
-              Showing {filteredCoverage.length} of {coverage.length} items
-            </span>
-          )}
+
+            {/* Target Journalists */}
+            <div>
+              <p style={{ fontSize: 12, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 10 }}>Target Journalists</p>
+              {journalists.length === 0 && (
+                <p className="text-sm text-muted" style={{ marginBottom: 10 }}>No target journalists yet.</p>
+              )}
+              {journalists.map((j, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #f0f0f0' }}>
+                  <div>
+                    <span style={{ fontSize: 13, fontWeight: 500 }}>{j}</span>
+                    {targetJournalistHits[j] > 0 ? (
+                      <span className="badge badge-green" style={{ marginLeft: 8, fontSize: 10 }}>{targetJournalistHits[j]} earned</span>
+                    ) : (
+                      <span className="badge badge-grey" style={{ marginLeft: 8, fontSize: 10 }}>0 earned</span>
+                    )}
+                  </div>
+                  <button className="btn btn-ghost btn-sm" onClick={() => removeJournalist(i)} title="Remove">×</button>
+                </div>
+              ))}
+              <div style={{ display: 'flex', gap: 6, marginTop: 10 }}>
+                <input
+                  value={newJournalist}
+                  onChange={e => setNewJournalist(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && addJournalist()}
+                  placeholder="Add journalist name…"
+                  style={{ flex: 1, padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
+                />
+                <button className="btn btn-secondary btn-sm" onClick={addJournalist}>Add</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -132,7 +200,7 @@ export default function PROverview({ coverage, publicationTiers, queries, onAddQ
               <tbody>
                 {KEY_MESSAGES.map(m => {
                   const count = keyMessageCounts[m] || 0;
-                  const pct = totalCoverage ? Math.round((count / totalCoverage) * 100) : 0;
+                  const pct = filteredTotal ? Math.round((count / filteredTotal) * 100) : 0;
                   return (
                     <tr key={m}>
                       <td style={{ fontSize: 12 }}>{m}</td>
@@ -154,8 +222,8 @@ export default function PROverview({ coverage, publicationTiers, queries, onAddQ
             <div className="card-header"><h2>Target Audience Reach</h2></div>
             <div className="card-body">
               <p className="text-sm text-muted" style={{ marginBottom: 12 }}>Consumer audience is weighted 2× (primary target)</p>
-              <AudienceBar label="Consumer" count={consumerCount} total={totalCoverage} primary />
-              <AudienceBar label="Business / Trade" count={businessCount} total={totalCoverage} />
+              <AudienceBar label="Consumer" count={consumerCount} total={filteredTotal} primary />
+              <AudienceBar label="Business / Trade" count={businessCount} total={filteredTotal} />
             </div>
           </div>
 
@@ -185,7 +253,7 @@ export default function PROverview({ coverage, publicationTiers, queries, onAddQ
         <div className="card">
           <div className="card-header"><h2>Sentiment Distribution</h2></div>
           <div className="card-body">
-            {total === 0 ? (
+            {sentTotal === 0 ? (
               <p className="text-sm text-muted">No coverage with sentiment data yet.</p>
             ) : (
               <div className="pie-wrap">
@@ -206,7 +274,7 @@ export default function PROverview({ coverage, publicationTiers, queries, onAddQ
           <div className="card-body">
             {LLM_PLATFORMS.map(p => {
               const count = llmVisibilityCounts[p] || 0;
-              const pct = totalCoverage ? Math.round((count / totalCoverage) * 100) : 0;
+              const pct = filteredTotal ? Math.round((count / filteredTotal) * 100) : 0;
               return (
                 <div key={p} style={{ marginBottom: 12 }}>
                   <div className="flex justify-between" style={{ marginBottom: 4 }}>
@@ -279,7 +347,12 @@ export default function PROverview({ coverage, publicationTiers, queries, onAddQ
                   {topPublications.map((pub, i) => (
                     <tr key={pub.name}>
                       <td style={{ color: '#888', width: 32 }}>{i + 1}</td>
-                      <td>{pub.name}</td>
+                      <td>
+                        {pub.name}
+                        {outlets.some(o => pub.name.toLowerCase().includes(o.toLowerCase())) && (
+                          <span className="badge badge-amber" style={{ marginLeft: 6, fontSize: 10 }}>target</span>
+                        )}
+                      </td>
                       <td style={{ textAlign: 'right', fontWeight: 600 }}>{pub.count}</td>
                     </tr>
                   ))}
@@ -289,6 +362,16 @@ export default function PROverview({ coverage, publicationTiers, queries, onAddQ
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function MetricTile({ label, value, sub, highlight }) {
+  return (
+    <div style={{ padding: '12px 16px', background: '#f8f8f8', borderRadius: 8, borderLeft: highlight ? '3px solid #22c55e' : '3px solid #e0e0e0' }}>
+      <p style={{ fontSize: 11, fontWeight: 600, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 4 }}>{label}</p>
+      <p style={{ fontSize: 22, fontWeight: 700, color: highlight ? '#22c55e' : '#1a1a1a' }}>{value}</p>
+      {sub && <p style={{ fontSize: 11, color: '#888', marginTop: 2 }}>{sub}</p>}
     </div>
   );
 }

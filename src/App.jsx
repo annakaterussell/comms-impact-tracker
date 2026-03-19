@@ -19,6 +19,38 @@ const VIEWS = [
   { id: 'coverage-library', label: 'Coverage Library' },
 ];
 
+const DATE_PRESETS = [
+  { label: 'All time', value: 'all' },
+  { label: 'This month', value: 'month' },
+  { label: 'This quarter', value: 'quarter' },
+  { label: 'This year', value: 'year' },
+  { label: 'Custom', value: 'custom' },
+];
+
+function getPresetRange(preset) {
+  const now = new Date();
+  if (preset === 'month') {
+    return {
+      from: new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0],
+      to: new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0],
+    };
+  }
+  if (preset === 'quarter') {
+    const q = Math.floor(now.getMonth() / 3);
+    return {
+      from: new Date(now.getFullYear(), q * 3, 1).toISOString().split('T')[0],
+      to: new Date(now.getFullYear(), q * 3 + 3, 0).toISOString().split('T')[0],
+    };
+  }
+  if (preset === 'year') {
+    return {
+      from: `${now.getFullYear()}-01-01`,
+      to: `${now.getFullYear()}-12-31`,
+    };
+  }
+  return null;
+}
+
 // ── Add LLM Query inline modal ──────────────────────────────────────────────
 function AddQueryModal({ onClose, onSave, campaigns }) {
   const [query, setQuery] = useState('');
@@ -68,7 +100,17 @@ export default function App() {
   const [campaigns, setCampaigns] = useState([]);
   const [utilization, setUtilization] = useState([]);
   const [queries, setQueries] = useState([]);
-  const [config, setConfig] = useState({ publicationTiers: DEFAULT_PUBLICATION_TIERS, businessTarget: BUSINESS_OBJECTIVE.target });
+  const [config, setConfig] = useState({
+    publicationTiers: DEFAULT_PUBLICATION_TIERS,
+    businessTarget: BUSINESS_OBJECTIVE.target,
+    targetOutlets: [],
+    targetJournalists: [],
+  });
+
+  // Shared date range filter for PR Overview page (controls both charts)
+  const [prDatePreset, setPrDatePreset] = useState('all');
+  const [prDateFrom, setPrDateFrom] = useState('');
+  const [prDateTo, setPrDateTo] = useState('');
 
   // Modal visibility
   const [showCoverageModal, setShowCoverageModal] = useState(false);
@@ -95,7 +137,14 @@ export default function App() {
         setCampaigns(camp);
         setUtilization(util);
         setQueries(qry);
-        if (cfg && cfg.publicationTiers) setConfig({ ...config, ...cfg });
+        if (cfg && cfg.publicationTiers) {
+          setConfig(prev => ({
+            ...prev,
+            ...cfg,
+            targetOutlets: cfg.targetOutlets || [],
+            targetJournalists: cfg.targetJournalists || [],
+          }));
+        }
       } catch (e) {
         setError(e.message);
       } finally {
@@ -183,9 +232,14 @@ export default function App() {
     await persist('queries', queries.filter(q => q.id !== id), setQueries);
   }
 
-  // ── Config (pub tiers + business target) ─────────────────────────────
+  // ── Config (pub tiers + business target + targets) ────────────────────
   async function handleSaveConfig(tiers, businessTarget) {
     const next = { ...config, publicationTiers: tiers, businessTarget };
+    await persist('config', next, setConfig);
+  }
+
+  async function handleUpdateTargets(newTargets) {
+    const next = { ...config, ...newTargets };
     await persist('config', next, setConfig);
   }
 
@@ -221,8 +275,31 @@ export default function App() {
     return merged;
   }, [queries, campaigns]);
 
+  // ── Shared PR Overview date range ─────────────────────────────────────
+  const prDateRange = useMemo(() => {
+    if (prDatePreset !== 'all' && prDatePreset !== 'custom') return getPresetRange(prDatePreset);
+    if (prDatePreset === 'custom' && (prDateFrom || prDateTo)) return { from: prDateFrom, to: prDateTo };
+    return null;
+  }, [prDatePreset, prDateFrom, prDateTo]);
+
+  const prFilteredCoverage = useMemo(() => {
+    if (!prDateRange) return coverage;
+    return coverage.filter(c => {
+      if (!c.publicationDate) return true;
+      if (prDateRange.from && c.publicationDate < prDateRange.from) return false;
+      if (prDateRange.to && c.publicationDate > prDateRange.to) return false;
+      return true;
+    });
+  }, [coverage, prDateRange]);
+
+  // ── Targets config ────────────────────────────────────────────────────
+  const targets = useMemo(() => ({
+    outlets: config.targetOutlets || [],
+    journalists: config.targetJournalists || [],
+  }), [config.targetOutlets, config.targetJournalists]);
+
   // ── Derived stats ─────────────────────────────────────────────────────
-  const stats = computeStats(coverage, config.publicationTiers);
+  const stats = computeStats(coverage, config.publicationTiers, targets);
 
   const businessTarget = config.businessTarget ?? BUSINESS_OBJECTIVE.target;
 
@@ -298,6 +375,44 @@ export default function App() {
       <main className="content">
         {view === 'pr-overview' && (
           <>
+            {/* Shared date range filter — controls both Network Utilization and PR Overview metrics */}
+            <div className="card" style={{ marginBottom: 16, padding: '12px 20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                <span style={{ fontSize: 12, fontWeight: 600, color: '#888', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Date range:</span>
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                  {DATE_PRESETS.map(p => (
+                    <button
+                      key={p.value}
+                      className={`filter-btn${prDatePreset === p.value ? ' active' : ''}`}
+                      onClick={() => setPrDatePreset(p.value)}
+                    >{p.label}</button>
+                  ))}
+                </div>
+                {prDatePreset === 'custom' && (
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    <input
+                      type="date"
+                      value={prDateFrom}
+                      onChange={e => setPrDateFrom(e.target.value)}
+                      style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
+                    />
+                    <span style={{ fontSize: 12, color: '#888' }}>to</span>
+                    <input
+                      type="date"
+                      value={prDateTo}
+                      onChange={e => setPrDateTo(e.target.value)}
+                      style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
+                    />
+                  </div>
+                )}
+                {prDatePreset !== 'all' && (
+                  <span className="text-sm text-muted" style={{ marginLeft: 4 }}>
+                    Showing {prFilteredCoverage.length} of {coverage.length} coverage items
+                  </span>
+                )}
+              </div>
+            </div>
+
             <NetworkUtilizationChart
               utilization={utilization}
               coverage={coverage}
@@ -305,14 +420,18 @@ export default function App() {
               onAddData={() => { setEditingUtilization(null); setShowNetworkModal(true); }}
               onEditData={openEditUtilization}
               businessTarget={businessTarget}
+              dateRange={prDateRange}
             />
             <PROverview
-              coverage={coverage}
+              coverage={prFilteredCoverage}
+              totalCoverage={coverage.length}
               publicationTiers={config.publicationTiers}
               queries={allQueries}
               onAddQuery={() => setShowQueryModal(true)}
               onDeleteQuery={handleDeleteQuery}
               onAddCoverage={() => { setEditingCoverage(null); setShowCoverageModal(true); }}
+              targets={targets}
+              onUpdateTargets={handleUpdateTargets}
             />
           </>
         )}
@@ -322,10 +441,12 @@ export default function App() {
             campaigns={campaigns}
             coverage={coverage}
             publicationTiers={config.publicationTiers}
+            targets={targets}
             onNewCampaign={() => { setEditingCampaign(null); setShowCampaignModal(true); }}
             onEditCampaign={openEditCampaign}
             onDeleteCampaign={handleDeleteCampaign}
             onAddCoverage={() => { setEditingCoverage(null); setShowCoverageModal(true); }}
+            onEditCoverage={openEditCoverage}
           />
         )}
 

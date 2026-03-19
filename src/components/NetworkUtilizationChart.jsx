@@ -1,64 +1,34 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { BUSINESS_OBJECTIVE } from '../config/defaultConfig.js';
-
-const FILTERS = ['Week', 'Month', 'Quarter', 'Year', 'All'];
-
-function getSunday(date) {
-  const d = new Date(date);
-  const day = d.getDay(); // 0=Sun
-  d.setDate(d.getDate() - day);
-  return d;
-}
 
 function formatWeekLabel(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-export default function NetworkUtilizationChart({ utilization, coverage, campaigns, onAddData, onEditData, businessTarget }) {
-  const [filter, setFilter] = useState('All');
-  const [filterDate, setFilterDate] = useState('');
+// dateRange = { from: 'YYYY-MM-DD', to: 'YYYY-MM-DD' } | null
+// When provided, only shows utilization weeks that fall within the range.
+export default function NetworkUtilizationChart({ utilization, coverage, campaigns, onAddData, onEditData, businessTarget, dateRange }) {
   const target = businessTarget ?? BUSINESS_OBJECTIVE.target;
 
-  // Filtered + sorted utilization
   const filteredData = useMemo(() => {
     let data = [...utilization].sort((a, b) => a.weekStart.localeCompare(b.weekStart));
 
-    if (!filterDate) return data;
-
-    const ref = new Date(filterDate + 'T00:00:00');
-
-    if (filter === 'Week') {
-      const sunday = getSunday(ref);
-      const weekStr = sunday.toISOString().split('T')[0];
-      data = data.filter(d => d.weekStart === weekStr);
-    } else if (filter === 'Month') {
-      const y = ref.getFullYear(), m = ref.getMonth();
+    if (dateRange) {
       data = data.filter(d => {
-        const dd = new Date(d.weekStart + 'T00:00:00');
-        return dd.getFullYear() === y && dd.getMonth() === m;
+        if (dateRange.from && d.weekStart < dateRange.from) return false;
+        if (dateRange.to && d.weekStart > dateRange.to) return false;
+        return true;
       });
-    } else if (filter === 'Quarter') {
-      const q = Math.floor(ref.getMonth() / 3);
-      const y = ref.getFullYear();
-      data = data.filter(d => {
-        const dd = new Date(d.weekStart + 'T00:00:00');
-        return dd.getFullYear() === y && Math.floor(dd.getMonth() / 3) === q;
-      });
-    } else if (filter === 'Year') {
-      const y = ref.getFullYear();
-      data = data.filter(d => new Date(d.weekStart + 'T00:00:00').getFullYear() === y);
     }
 
     return data;
-  }, [utilization, filter, filterDate]);
+  }, [utilization, dateRange]);
 
   const maxVal = Math.max(...filteredData.map(d => d.value), target, 10);
-  // Add 15% headroom above max so bars don't crowd the top
   const chartMax = maxVal * 1.15;
   const chartH = 160;
 
-  // Average utilization for displayed range
   const avgUtil = filteredData.length > 0
     ? (filteredData.reduce((s, d) => s + d.value, 0) / filteredData.length).toFixed(1)
     : null;
@@ -67,7 +37,6 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
   const gapVal = latestVal != null ? latestVal - target : null;
   const gapPct = gapVal != null ? ((gapVal / target) * 100).toFixed(1) : null;
 
-  // Find coverage/campaign events per week
   function getEventsForWeek(weekStart) {
     const weekStartDate = new Date(weekStart + 'T00:00:00');
     const weekEnd = new Date(weekStart + 'T00:00:00');
@@ -89,16 +58,6 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
     return { covCount, campCount: activeCamps.length };
   }
 
-  function getDateInputLabel() {
-    if (filter === 'Week') return 'Select any day in the week';
-    if (filter === 'Month') return 'Select month';
-    if (filter === 'Quarter') return 'Select any day in the quarter';
-    if (filter === 'Year') return 'Select year';
-    return '';
-  }
-
-  const showDatePicker = filter !== 'All';
-
   return (
     <div className="card" style={{ marginBottom: 20 }}>
       <div className="card-header">
@@ -109,47 +68,6 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
         <button className="btn btn-primary btn-sm" onClick={onAddData}>+ Add Weekly Data</button>
       </div>
       <div className="card-body">
-
-        {/* Filters */}
-        <div className="toolbar" style={{ marginBottom: 16 }}>
-          <div className="flex gap-2" style={{ flexWrap: 'wrap' }}>
-            {FILTERS.map(f => (
-              <button
-                key={f}
-                className={`filter-btn${filter === f ? ' active' : ''}`}
-                onClick={() => { setFilter(f); if (f === 'All') setFilterDate(''); }}
-              >{f}</button>
-            ))}
-          </div>
-          {showDatePicker && (
-            <div className="flex items-center gap-2">
-              <label style={{ fontSize: 12, color: '#888' }}>{getDateInputLabel()}:</label>
-              {filter === 'Year' ? (
-                <input
-                  type="number" min="2023" max="2030"
-                  value={filterDate}
-                  onChange={e => setFilterDate(e.target.value)}
-                  style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13, width: 90 }}
-                  placeholder="2026"
-                />
-              ) : filter === 'Month' ? (
-                <input
-                  type="month"
-                  value={filterDate}
-                  onChange={e => setFilterDate(e.target.value + '-01')}
-                  style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
-                />
-              ) : (
-                <input
-                  type="date"
-                  value={filterDate}
-                  onChange={e => setFilterDate(e.target.value)}
-                  style={{ padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 6, fontSize: 13 }}
-                />
-              )}
-            </div>
-          )}
-        </div>
 
         {/* Legend */}
         <div className="flex gap-4" style={{ marginBottom: 12, flexWrap: 'wrap' }}>
@@ -162,7 +80,10 @@ export default function NetworkUtilizationChart({ utilization, coverage, campaig
         {filteredData.length === 0 ? (
           <div className="empty-state" style={{ padding: 32 }}>
             <div className="icon">📊</div>
-            <p>No utilization data yet. Add weekly data to see the chart.</p>
+            <p>{utilization.length === 0
+              ? 'No utilization data yet. Add weekly data to see the chart.'
+              : 'No utilization data for the selected date range.'}
+            </p>
           </div>
         ) : (
           <div className="chart-scroll-wrap">
