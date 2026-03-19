@@ -40,10 +40,10 @@ export default function CoverageLibrary({ coverage, campaigns, publicationTiers,
     e.target.value = '';
   }
 
-  const enriched = useMemo(() => coverage.map(c => ({
-    ...c,
-    _score: calculateImpactScore(c, coverage, publicationTiers),
-  })), [coverage, publicationTiers]);
+  const enriched = useMemo(() => coverage.map(c => {
+    const primaryKeyMessage = campaigns.find(camp => camp.id === c.campaignId)?.primaryKeyMessage || null;
+    return { ...c, _score: calculateImpactScore(c, coverage, publicationTiers, {}, primaryKeyMessage) };
+  }), [coverage, publicationTiers, campaigns]);
 
   const filtered = useMemo(() => {
     let data = enriched;

@@ -6,7 +6,7 @@ const EMPTY = {
   goals: ['', ''],
   overview: '',
   keyFindings: '',
-  targetAudience: [], keyMessages: [], campaignKeyMessage: '',
+  targetAudience: [], keyMessages: [], campaignKeyMessage: '', primaryKeyMessage: '',
   llmQueries: ['', ''],
   targets: ['', ''],
   notes: '',
@@ -163,12 +163,46 @@ export default function AddCampaignModal({ onClose, onSave, editItem }) {
             <div className="checkbox-group" style={{ flexDirection: 'column', gap: 8 }}>
               {KEY_MESSAGES.map(m => (
                 <label key={m} className="checkbox-item">
-                  <input type="checkbox" checked={(form.keyMessages || []).includes(m)} onChange={() => toggleArray('keyMessages', m)} />
+                  <input
+                    type="checkbox"
+                    checked={(form.keyMessages || []).includes(m)}
+                    onChange={() => setForm(f => {
+                      const arr = f.keyMessages || [];
+                      const newArr = arr.includes(m) ? arr.filter(x => x !== m) : [...arr, m];
+                      return {
+                        ...f,
+                        keyMessages: newArr,
+                        primaryKeyMessage: f.primaryKeyMessage === m && !newArr.includes(m) ? '' : f.primaryKeyMessage,
+                      };
+                    })}
+                  />
                   {m}
                 </label>
               ))}
             </div>
           </div>
+
+          {(form.keyMessages || []).length > 0 && (
+            <div className="form-group">
+              <label>Primary Key Message <span className="req">*</span></label>
+              <p className="text-sm text-muted" style={{ marginBottom: 8 }}>
+                The single most important message for this campaign — coverage that includes this message will score higher.
+              </p>
+              <div className="checkbox-group" style={{ flexDirection: 'column', gap: 8 }}>
+                {(form.keyMessages || []).map(m => (
+                  <label key={m} className="checkbox-item">
+                    <input
+                      type="radio"
+                      name="primaryKeyMessage"
+                      checked={form.primaryKeyMessage === m}
+                      onChange={() => set('primaryKeyMessage', m)}
+                    />
+                    {m}
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="form-group">
             <label>Campaign-Specific Key Message <span style={{ color: '#f59e0b', fontWeight: 700 }}>★</span></label>

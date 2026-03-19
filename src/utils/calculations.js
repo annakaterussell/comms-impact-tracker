@@ -3,12 +3,26 @@ import { KEY_MESSAGES, DEFAULT_PUBLICATION_TIERS, IMPACT_SCORE_THRESHOLDS } from
 // ── Impact Score ────────────────────────────────────────────────────────────
 
 // targets = { outlets: string[], journalists: string[] }
-export function calculateImpactScore(item, allCoverage, publicationTiers = DEFAULT_PUBLICATION_TIERS, targets = {}) {
+// primaryKeyMessage = campaign's designated primary key message (string or null)
+export function calculateImpactScore(item, allCoverage, publicationTiers = DEFAULT_PUBLICATION_TIERS, targets = {}, primaryKeyMessage = null) {
   const maxReach = Math.max(...allCoverage.map(c => Number(c.estimatedReach) || 0), 1);
 
   // Base components (0–100 total)
   const reachScore = (Math.min(Number(item.estimatedReach) || 0, maxReach) / maxReach) * 25;
-  const messageScore = ((item.keyMessages?.length || 0) / KEY_MESSAGES.length) * 25;
+
+  // Message alignment — Option B: key message hit + 3 others = full score
+  let messageScore;
+  if (primaryKeyMessage) {
+    const msgs = item.keyMessages || [];
+    const primaryHit = msgs.includes(primaryKeyMessage);
+    const otherMsgs = msgs.filter(m => m !== primaryKeyMessage).length;
+    const msgRatio = primaryHit
+      ? Math.min(1.0, 0.5 + (otherMsgs / 3) * 0.5)   // 0.5 base + up to 0.5 for 3+ others
+      : (msgs.length / KEY_MESSAGES.length) * 0.4;    // capped below primary-hit territory
+    messageScore = msgRatio * 25;
+  } else {
+    messageScore = ((item.keyMessages?.length || 0) / KEY_MESSAGES.length) * 25;
+  }
   const audienceScore = (item.targetAudience?.length > 0) ? 20 : 0;
   const sentimentScore = item.sentiment === 'Positive' ? 15 : item.sentiment === 'Neutral' ? 7 : 0;
   const llmScore = ((item.llmVisibility?.length || 0) / 4) * 15;
@@ -47,7 +61,7 @@ export function getImpactLabel(score) {
 
 // ── Aggregated Stats ────────────────────────────────────────────────────────
 
-export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TIERS, targets = {}) {
+export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TIERS, targets = {}, primaryKeyMessage = null) {
   if (!coverage.length) {
     return {
       totalCoverage: 0,
@@ -101,7 +115,7 @@ export function computeStats(coverage, publicationTiers = DEFAULT_PUBLICATION_TI
   const execQuotes = coverage.filter(c => c.executiveVisibility?.includes('Quote')).length;
 
   // Impact scores
-  const scores = coverage.map(c => calculateImpactScore(c, coverage, publicationTiers, targets));
+  const scores = coverage.map(c => calculateImpactScore(c, coverage, publicationTiers, targets, primaryKeyMessage));
   const avgImpactScore = Math.round(scores.reduce((s, v) => s + v, 0) / scores.length);
 
   // Sentiment
